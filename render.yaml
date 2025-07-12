@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: teknodevlearning
+    env: python
+    region: singapore
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app"  
+    plan: free
+
+    envVars:
+      - key: FLASK_SECRET_KEY
+        sync: false
+      - key: AI_API_KEY
+        sync: false
+      - key: EMAIL_PASS
+        sync: false
+      - key: DST_EMAIL
+        sync: false
+
