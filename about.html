@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TeknoDev -- Tentang Saya</title>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <h1 class="text-logo">TeknoDev</h1>
+    </div>
+    <div class="hamburger-bars">
+      <button id="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="/contact">Latihan</a></li>
+      <li><a href="{{ url_for('ai_page') }}">Tanya AI</a></li>
+      <li><a href="{{ url_for('kuis') }}">Kuis</a></li>
+      <li><a href="/about">Tentang Saya</a></li>
+      <li><a href="{{ url_for('contact') }}">Donasi</a></li>
+    </ul>
+  </nav>
+
+  <div class="profile">
+    <main class="profile-text">
+      
+    </main>
+  </div>
+</body>
+</html>

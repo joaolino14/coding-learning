@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Halaman utama website">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href=" {{ url_for('static', filename='css/style.css')}}">
+  <title>TeknoDev</title>
+</head>
+<body data-aos="zoom-in-up">
+  <nav class="navbar">
+    <div class="logo">
+      <h1 class="text-logo">TeknoDev</h1>
+    </div>
+    <div class="hamburger-bars">
+      <button id="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="{{ url_for('latihan') }}">Latihan</a></li>
+      <li><a href="{{ url_for('ai_page') }}">Tanya AI</a></li>
+      <li><a href="{{ url_for('kuis') }}">Kuis</a></li>
+      <li><a href="{{ url_for('contact') }}">Donasi</a></li>
+    </ul>
+  </nav>
+
+  <div class="container"">
+    <h1>Selamat Datang di TeknoDev</h1>
+    <p>Platform pembelajaran coding yang menyenangkan dan interaktif.</p>
+    <a href="#about" class="button">Mulai Belajar</a>
+  </div>
+
+  <div class="box-product" data-aos="fade-right" id="about"> 
+    <div class="product-card">
+      <h2>Belajar HTML</h2>
+      <p>Mulai belajar HTML dasar hingga mahir</p>
+      <a href=" {{ url_for('pages' , page_name='app') }} " class="btn">Mulai</a>
+    </div>
+
+    <div class="product-card">
+      <h2>Belajar CSS</h2>
+      <p>Kuasi dunia styling dengan CSS modern</p>
+      <a href="{{ url_for('pages' , page_name= 'auth') }}" class="btn">Mulai</a>
+    </div>
+
+    <div class="product-card">
+      <h2>Belajar JavaScript</h2>
+      <p>Buat website interaktif dengan JS</p>
+      <a href="{{ url_for('pages' , page_name='base') }}" class="btn">Mulai</a>
+    </div>
+
+    <div class="product-card">
+      <h2>Belajar React</h2>
+      <p>Bangun aplikasi web dengan React</p>
+      <a href="{{ url_for('pages' , page_name='react') }}" class="btn">Mulai</a>
+    </div>
+  </div>
+
+  <section class="start-game">
+    <h2>Belajar Gratis Mulai Dari Sekarang!</h2>
+    <p>Ingin belajar coding dengan cara yang mudah, interaktif, dan gratis? Mulai perjalananmu bersama TeknoDev sekarang juga!</p>
+  </section>
+
+  <footer class="footer-bottom">
+    <p>&copy; 2023 TeknoDev. All rights reserved.</p>
+    <p>Created by Marcellino Jonathan</p>
+    <p>Follow us on social media:</p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/share/1Arnuv4vzu/">
+      <i class="fab fa-facebook"></i></a>
+      <a href="https://www.tiktok.com/@com.jonalinovorrer">
+      <i class="fab fa-tiktok"></i></a>
+      <a href="https://www.instagram.com/jmnrlno7?igsh=aW4yYWI3dmFjaWtm">
+      <i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/joaolino14">
+      <i class="fab fa-github"></i></a>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/script.js')}}"></script>
+</body>
+</html>

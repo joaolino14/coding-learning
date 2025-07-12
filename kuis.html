@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kuis Interaktif TeknoDev">
+  <title>TeknoDev -- Kuis</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/kuis.css')}}" />
+</head>
+<body>
+
+  <!-- ===== Navbar ===== -->
+  <header class="navbar">
+    <h1 class="title">Kuis Interaktif</h1>
+  </header>
+
+  
+  <!-- ===== Konten Utama: Kuis ===== -->
+  <main class="quiz-container">
+    <div class="container">
+
+      <div class="quiz-header" id="default-content">
+        <h2><i class="fas fa-question-circle"></i> Kuis Interaktif</h2>
+        <p>Pilih kuis sesuai keahlianmu dan uji pengetahuanmu!</p>
+      </div>
+
+      <!-- ===== Daftar Soal Kuis ===== -->
+      <div class="quiz-items" id="quiz-content">
+
+        <!-- ===================== JavaScript ===================== -->
+        <div class="quiz-item" data-category="javascript">
+          <div class="question-number">JavaScript - Pertanyaan 1</div>
+          <div class="question-text">Apa output dari <code>console.log(typeof null)</code>?</div>
+          <div class="answer-options">
+            <button class="answer-btn" data-question="js1" data-answer="a">A. "null"</button>
+            <button class="answer-btn" data-question="js1" data-answer="b">B. "undefined"</button>
+            <button class="answer-btn" data-question="js1" data-answer="c">C. "object"</button>
+            <button class="answer-btn" data-question="js1" data-answer="d">D. "boolean"</button>
+          </div>
+        </div>
+
+        <div class="quiz-item" data-category="javascript">
+          <div class="question-number">JavaScript - Pertanyaan 2</div>
+          <div class="question-text">Bagaimana cara mendeklarasikan variabel dalam JavaScript modern?</div>
+          <div class="answer-options">
+            <button class="answer-btn" data-question="js2" data-answer="a">A. var, let, const</button>
+            <button class="answer-btn" data-question="js2" data-answer="b">B. int, float, char</button>
+            <button class="answer-btn" data-question="js2" data-answer="c">C. define, let, const</button>
+            <button class="answer-btn" data-question="js2" data-answer="d">D. variable, static</button>
+          </div>
+        </div>
+
+        <div class="quiz-item" data-category="javascript">
+          <div class="question-number">JavaScript - Pertanyaan 3</div>
+          <div class="question-text">Apa hasil dari <code>2 + '2'</code> dalam JavaScript?</div>
+          <div class="answer-options">
+            <button class="answer-btn" data-question="js3" data-answer="a">A. 4</button>
+            <button class="answer-btn" data-question="js3" data-answer="b">B. "22"</button>
+            <button class="answer-btn" data-question="js3" data-answer="c">C. NaN</button>
+            <button class="answer-btn" data-question="js3" data-answer="d">D. undefined</button>
+          </div>
+        </div>
+
+        <div class="quiz-item" data-category="javascript">
+          <div class="question-number">JavaScript - Pertanyaan 4</div>
+          <div class="question-text">Method mana yang digunakan untuk menambahkan elemen ke akhir array?</div>
+          <div class="answer-options">
+            <button class="answer-btn" data-question="js4" data-answer="a">A. push()</button>
+            <button class="answer-btn" data-question="js4" data-answer="b">B. pop()</button>
+            <button class="answer-btn" data-question="js4" data-answer="c">C. shift()</button>
+            <button class="answer-btn" data-question="js4" data-answer="d">D. unshift()</button>
+          </div>
+        </div>
+
+        <div class="quiz-item" data-category="javascript">
+          <div class="question-number">JavaScript - Pertanyaan 5</div>
+          <div class="question-text">Fungsi JavaScript apa yang digunakan untuk menunda eksekusi kode?</div>
+          <div class="answer-options">
+            <button class="answer-btn" data-question="js5" data-answer="a">A. delay()</button>
+            <button class="answer-btn" data-question="js5" data-answer="b">B. timeout()</button>
+            <button class="answer-btn" data-question="js5" data-answer="c">C. setTimeout()</button>
+            <button class="answer-btn" data-question="js5" data-answer="d">D. wait()</button>
+          </div>
+        </div>
+
+
+        <!-- ===================== HTML ===================== -->
+        <div class="quiz-item" data-category="html">
+          <div class="question-number">HTML - Pertanyaan 1</div>
+          <div class="question-text">Tag HTML mana yang digunakan untuk membuat tautan?</div>
+          <div class="answer-options">
+            <button class="answer-btn" data-question="html1" data-answer="a">A. &lt;link&gt;</button>
+            <button class="answer-btn" data-question="html1" data-answer="b">B. &lt;a&gt;</button>
+            <button class="answer-btn" data-question="html1" data-answer="c">C. &lt;href&gt;</button>
+            <button class="answer-btn" data-question="html1" data-answer="d">D. &lt;url&gt;</button>
+          </div>
+        </div>
+
+        <div class="quiz-item" data-category="html">
+          <div class="question-number">HTML - Pertanyaan 2</div>
+          <div class="question-text">Apa fungsi dari atribut <code>alt</code> dalam tag &lt;img&gt;?</div>
+          <div class="answer-options">
+            <button class="answer-btn" data-question="html2" data-answer="a">A. Menyimpan gambar</button>
+            <button class="answer-btn" data-question="html2" data-answer="b">B. Memberi ukuran gambar</button>
+            <button class="answer-btn" data-question="html2" data-answer="c">C. Menampilkan teks alternatif</button>
+            <button class="answer-btn" data-question="html2" data-answer="d">D. Mengatur posisi gambar</button>
+          </div>
+        </div>
+
+        <div class="quiz-item" data-category="html">
+          <div class="question-number">HTML - Pertanyaan 3</div>
+          <div class="question-text">Tag mana yang digunakan untuk membuat paragraf dalam HTML?</div>
+          <div class="answer-options">
+            <button class="answer-btn" data-question="html3" data-answer="a">A. &lt;paragraph&gt;</button>
+            <button class="answer-btn" data-question="html3" data-answer="b">B. &lt;para&gt;</button>
+            <button class="answer-btn" data-question="html3" data-answer="c">C. &lt;text&gt;</button>
+            <button class="answer-btn" data-question="html3" data-answer="d">D. &lt;p&gt;</button>
+          </div>
+        </div>
+
+        <div class="quiz-item" data-category="html">
+          <div class="question-number">HTML - Pertanyaan 4</div>
+          <div class="question-text">Apa fungsi dari tag &lt;head&gt; dalam dokumen HTML?</div>
+          <div class="answer-options">
+            <button class="answer-btn" data-question="html4" data-answer="a">A. Menampilkan judul halaman</button>
+            <button class="answer-btn" data-question="html4" data-answer="b">B. Menyimpan metadata dan link eksternal</button>
+            <button class="answer-btn" data-question="html4" data-answer="c">C. Menampilkan konten utama</button>
+            <button class="answer-btn" data-question="html4" data-answer="d">D. Menyimpan skrip database</button>
+          </div>
+        </div>
+
+        <div class="quiz-item" data-category="html">
+          <div class="question-number">HTML - Pertanyaan 5</div>
+          <div class="question-text">Atribut HTML mana yang digunakan untuk memberi ID unik pada elemen?</div>
+          <div class="answer-options">
+            <button class="answer-btn" data-question="html5" data-answer="a">A. class</button>
+            <button class="answer-btn" data-question="html5" data-answer="b">B. name</button>
+            <button class="answer-btn" data-question="html5" data-answer="c">C. id</button>
+            <button class="answer-btn" data-question="html5" data-answer="d">D. ref</button>
+          </div>
+        </div>
+
+        <!-- ===================== CSS ===================== -->
+        <div class="quiz-item" data-category="css">
+          <div class="question-number">CSS - Pertanyaan 1</div>
+          <div class="question-text">Bagaimana cara mengubah warna teks menjadi merah dengan CSS?</div>
+          <div class="answer-options">
+            <button class="answer-btn" data-question="css1" data-answer="a">A. text-color: red;</button>
+            <button class="answer-btn" data-question="css1" data-answer="b">B. color: red;</button>
+            <button class="answer-btn" data-question="css1" data-answer="c">C. font-color: red;</button>
+            <button class="answer-btn" data-question="css1" data-answer="d">D. text-style: red;</button>
+          </div>
+        </div>
+
+        <div class="quiz-item" data-category="css">
+          <div class="question-number">CSS - Pertanyaan 2</div>
+          <div class="question-text">Properti CSS mana yang digunakan untuk mengatur ukuran teks?</div>
+          <div class="answer-options">
+            <button class="answer-btn" data-question="css2" data-answer="a">A. font-weight</button>
+            <button class="answer-btn" data-question="css2" data-answer="b">B. text-style</button>
+            <button class="answer-btn" data-question="css2" data-answer="c">C. font-size</button>
+            <button class="answer-btn" data-question="css2" data-answer="d">D. size</button>
+          </div>
+        </div>
+
+        <div class="quiz-item" data-category="css">
+          <div class="question-number">CSS - Pertanyaan 3</div>
+          <div class="question-text">Selector mana yang digunakan untuk memilih semua elemen &lt;p&gt; di CSS?</div>
+          <div class="answer-options">
+            <button class="answer-btn" data-question="css3" data-answer="a">A. .p</button>
+            <button class="answer-btn" data-question="css3" data-answer="b">B. #p</button>
+            <button class="answer-btn" data-question="css3" data-answer="c">C. p</button>
+            <button class="answer-btn" data-question="css3" data-answer="d">D. *p</button>
+          </div>
+        </div>
+
+        <div class="quiz-item" data-category="css">
+          <div class="question-number">CSS - Pertanyaan 4</div>
+          <div class="question-text">Apa fungsi dari properti <code>margin</code> dalam CSS?</div>
+          <div class="answer-options">
+            <button class="answer-btn" data-question="css4" data-answer="a">A. Mengatur warna elemen</button>
+            <button class="answer-btn" data-question="css4" data-answer="b">B. Menentukan jarak antar elemen</button>
+            <button class="answer-btn" data-question="css4" data-answer="c">C. Mengatur teks</button>
+            <button class="answer-btn" data-question="css4" data-answer="d">D. Memberi border</button>
+          </div>
+        </div>
+
+        <div class="quiz-item" data-category="css">
+          <div class="question-number">CSS - Pertanyaan 5</div>
+          <div class="question-text">Bagaimana cara menambahkan file CSS eksternal ke HTML?</div>
+          <div class="answer-options">
+            <button class="answer-btn" data-question="css5" data-answer="a">A. &lt;style src="style.css"&gt;</button>
+            <button class="answer-btn" data-question="css5" data-answer="b">B. &lt;css href="style.css"&gt;</button>
+            <button class="answer-btn" data-question="css5" data-answer="c">C. &lt;script href="style.css"&gt;</button>
+            <button class="answer-btn" data-question="css5" data-answer="d">D. &lt;link rel="stylesheet" href="style.css"&gt;</button>
+          </div>
+        </div>
+
+        <!-- ===================== React ===================== -->
+        <div class="quiz-item" data-category="react">
+          <div class="question-number">React - Pertanyaan 1</div>
+          <div class="question-text">Apa itu JSX dalam React?</div>
+          <div class="answer-options">
+            <button class="answer-btn" data-question="react1" data-answer="a">A. Library CSS</button>
+            <button class="answer-btn" data-question="react1" data-answer="b">B. Format file</button>
+            <button class="answer-btn" data-question="react1" data-answer="c">C. Ekstensi HTML khusus</button>
+            <button class="answer-btn" data-question="react1" data-answer="d">D. Sintaks JavaScript yang mirip HTML</button>
+          </div>
+        </div>
+
+        <div class="quiz-item" data-category="react">
+          <div class="question-number">React - Pertanyaan 2</div>
+          <div class="question-text">State dalam React digunakan untuk?</div>
+          <div class="answer-options">
+            <button class="answer-btn" data-question="react2" data-answer="a">A. Menyimpan data komponen</button>
+            <button class="answer-btn" data-question="react2" data-answer="b">B. Menentukan style</button>
+            <button class="answer-btn" data-question="react2" data-answer="c">C. Mengatur routing</button>
+            <button class="answer-btn" data-question="react2" data-answer="d">D. Menghubungkan API</button>
+          </div>
+        </div>
+
+        <div class="quiz-item" data-category="react">
+          <div class="question-number">React - Pertanyaan 3</div>
+          <div class="question-text">Apa fungsi dari useEffect dalam React?</div>
+          <div class="answer-options">
+            <button class="answer-btn" data-question="react3" data-answer="a">A. Mengatur styling komponen</button>
+            <button class="answer-btn" data-question="react3" data-answer="b">B. Menangani side effects</button>
+            <button class="answer-btn" data-question="react3" data-answer="c">C. Membuat routing</button>
+            <button class="answer-btn" data-question="react3" data-answer="d">D. Mengoptimasi performa</button>
+          </div>
+        </div>
+
+        <div class="quiz-item" data-category="react">
+          <div class="question-number">React - Pertanyaan 4</div>
+          <div class="question-text">Komponen mana yang digunakan untuk routing di React?</div>
+          <div class="answer-options">
+            <button class="answer-btn" data-question="react4" data-answer="a">A. Router</button>
+            <button class="answer-btn" data-question="react4" data-answer="b">B. Route</button>
+            <button class="answer-btn" data-question="react4" data-answer="c">C. BrowserRouter</button>
+            <button class="answer-btn" data-question="react4" data-answer="d">D. Semua benar</button>
+          </div>
+        </div>
+
+        <div class="quiz-item" data-category="react">
+          <div class="question-number">React - Pertanyaan 5</div>
+          <div class="question-text">Apa yang dikembalikan oleh custom hook?</div>
+          <div class="answer-options">
+            <button class="answer-btn" data-question="react5" data-answer="a">A. JSX element</button>
+            <button class="answer-btn" data-question="react5" data-answer="b">B. Array atau object</button>
+            <button class="answer-btn" data-question="react5" data-answer="c">C. Komponen React</button>
+            <button class="answer-btn" data-question="react5" data-answer="d">D. Style object</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Footer Kuis ===== -->
+      <div class="quiz-footer">
+        <button id="submitQuiz" class="btn-submit">Kirim Jawaban</button>
+        <div id="quizResult" class="quiz-result"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== JS ===== -->
+  <script src="{{ url_for('static', filename='js/kuis.js')}}"></script>
+</body>
+</html>

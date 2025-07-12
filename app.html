@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="Materi HTML">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href=" {{ url_for('static', filename='css/sidebar.css')}}">
+  <title>TeknoDev - HTML</title>
+</head>
+<body>
+  <header class="navbar">
+    <button class="openBtn" onclick="openNav()">
+      <i class="fas fa-bars"></i> Menu
+    </button>
+    <h1 class="title">HTML Learning</h1>
+  </header>
+
+  <div class="sidebar" id="sidebar">
+    <button class="closeBtn" onclick="closeNav()">
+      <i class="fas fa-times"></i> Close
+    </button>
+    <div class="sidebar-links">
+      <a href="#" data-content="pengenalan"><i class="fas fa-play"></i> Pengenalan HTML</a>
+      <a href="#" data-content="struktur"><i class="fas fa-code"></i> Struktur Dasar HTML</a>
+      <a href="#" data-content="heading"><i class="fas fa-heading"></i> Tag Heading & Paragraf</a>
+      <a href="#" data-content="list"><i class="fas fa-list"></i> Tag List (ul,ol,li)</a>
+      <a href="#" data-content="tautan"><i class="fas fa-link"></i> Tag Tautan (a)</a>
+      <a href="#" data-content="gambar"><i class="fas fa-image"></i> Tag Gambar (img)</a>
+      <a href="#" data-content="tabel"><i class="fas fa-table"></i> Tag Tabel (table)</a>
+      <a href="#" data-content="formulir"><i class="fas fa-edit"></i> Tag Formulir (form)</a>
+      <a href="#" data-content="layout"><i class="fas fa-square"></i> Tag Layout div,span</a>
+      <a href="#" data-content="semantic"><i class="fas fa-cube"></i> Semantic HTML</a>
+      <a href="#" data-content="komentar"><i class="fas fa-comment"></i> Komentar di HTML</a>
+      <a href="#" data-content="simbol"><i class="fa-solid fa-copyright"></i> Character Entity (Simbol Khusus)</a>
+      <a href="#" data-content="multimedia"><i class="fas fa-video"></i> Tag Multimedia: audio, video, iframe</a>
+      <a href="#" data-content="html5"><i class="fas fa-star"></i> HTML5: Apa yang baru?</a>
+    </div>
+  </div>
+
+  <main class="content">
+    <div class="container">
+      <!-- Konten default saat pertama kali load -->
+      <div id="default-content">
+        <h2>Selamat Belajar HTML</h2>
+        <p>Pilih materi dari sidebar untuk memulai pembelajaran.</p>
+      </div>
+
+      <!-- Konten untuk masing-masing materi -->
+      <div id="pengenalan" class="content-section">
+        <h2><i class="fas fa-play"></i> Pengenalan HTML</h2>
+        <div class="materi">
+          <p>HTML (HyperText Markup Language) adalah bahasa markup standar untuk membuat halaman web.</p>
+          
+          <h3>Sejarah HTML:</h3>
+          <ul>
+            <li>Diciptakan oleh Tim Berners-Lee pada tahun 1991</li>
+            <li>Versi pertama: HTML 1.0 (1991)</li>
+            <li>HTML 5 (versi terbaru) dirilis tahun 2014</li>
+          </ul>
+          
+          <h3>Fungsi HTML:</h3>
+          <ul>
+            <li>Membuat struktur halaman web</li>
+            <li>Menampilkan konten (teks, gambar, video)</li>
+            <li>Membuat form interaktif</li>
+            <li>Mengorganisir konten dengan elemen semantik</li>
+          </ul>
+          
+          <div class="code-example">
+            <h3>Contoh Kode HTML Sederhana:</h3>
+            <pre><code>&lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+            &lt;head&gt;
+              &lt;title&gt;Judul Halaman&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+              &lt;h1&gt;Ini Heading&lt;/h1&gt;
+              &lt;p&gt;Ini paragraf.&lt;/p&gt;
+            &lt;/body&gt;
+              &lt;/html&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+
+        <div id="struktur" class="content-section">
+          <h2><i class="fas fa-code"></i> Struktur Dasar HTML</h2>
+          <div class="materi">
+            <p>Dokumen HTML memiliki struktur dasar yang terdiri dari beberapa bagian utama:</p>
+            
+            <h3>1. Deklarasi DOCTYPE</h3>
+            <p>Mendefinisikan versi HTML yang digunakan:</p>
+            <pre><code>&lt;!DOCTYPE html&gt;</code></pre>
+            
+            <h3>2. Elemen &lt;html&gt;</h3>
+            <p>Elemen root yang membungkus seluruh konten HTML:</p>
+            <pre><code>&lt;html lang="en"&gt;
+           &lt;!-- Konten HTML --&gt;
+           &lt;/html&gt;</code></pre>
+            
+            <h3>3. Bagian &lt;head&gt;</h3>
+            <p>Berisi metadata tentang dokumen:</p>
+            <pre><code>&lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;title&gt;Judul Halaman&lt;/title&gt;
+            &lt;/head&gt;</code></pre>
+            
+            <h3>4. Bagian &lt;body&gt;</h3>
+            <p>Berisi konten yang ditampilkan di browser:</p>
+            <pre><code>&lt;body&gt;
+            &lt;h1&gt;Judul Konten&lt;/h1&gt;
+            &lt;p&gt;Paragraf konten...&lt;/p&gt;
+            &lt;/body&gt;</code></pre>
+          </div>
+        </div>
+
+      <!-- Tambahkan konten untuk materi lainnya di sini -->
+          <div id="heading" class="content-section">
+            <h2><i class="fas fa-heading"></i> Tag Heading & Paragraf</h2>
+            <div class="materi">
+              <p>Heading digunakan untuk judul dan subjudul dalam halaman web.</p>
+              
+              <h3>Tag Heading (h1-h6):</h3>
+            <pre><code>&lt;h1&gt;Heading 1 (Paling besar)&lt;/h1&gt;
+            &lt;h2&gt;Heading 2&lt;/h2&gt;
+            &lt;h3&gt;Heading 3&lt;/h3&gt;
+            &lt;h4&gt;Heading 4&lt;/h4&gt;
+            &lt;h5&gt;Heading 5&lt;/h5&gt;
+            &lt;h6&gt;Heading 6 (Paling kecil)&lt;/h6&gt;</code></pre>
+              
+              <h3>Tag Paragraf &lt;p&gt;:</h3>
+              <pre><code>&lt;p&gt;Ini adalah sebuah paragraf.&lt;/p&gt;
+    &lt;p&gt;Ini paragraf lainnya dengan &lt;br&gt; baris baru.&lt;/p&gt;</code></pre>
+
+                <h3>Kapan harus menggunakan tag heading dan p</h3>
+              <p>Kapan Digunakan:</p>
+                <p>Gunakan tag heading untuk membuat judul atau subjudul dalam konten kamu.</p>
+              
+              <p>Struktur yang disarankan:</p>
+                <ul>
+                  <li><code>&lt;h1&lt;</code> -> Judul utama halaman (hanya 1x per halaman)</li>
+                  <li><code>&lt;h2&lt; </code>-> Subjudul (misal" bab atau bagian besar) </li>
+                  <li><code>&lt;h3&lt; </code> -> Sub-subjudul (bagian kecil dalam bab)</li>
+                  <li><code>&lt;h4 ,h5 , h6&lt;</code> -> Untuk level yang lebih dalam (jarang dipakai kecuali artikel panjang)</li>
+                </ul>
+            </div>
+          </div>
+
+       <div id="list" class="content-section">
+  <h2><i class="fas fa-list"></i> Tag List (ul, ol, li)</h2>
+  <div class="materi">
+    <p>
+      List atau daftar digunakan untuk menampilkan item-item dalam urutan tertentu (ordered list) atau tidak berurutan (unordered list).
+    </p>
+
+    <h3>Unordered List (&lt;ul&gt;):</h3>
+    <p>Menampilkan daftar dengan bullet (•) tanpa urutan.</p>
+    <pre><code>&lt;ul&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+  &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+    <h3>Ordered List (&lt;ol&gt;):</h3>
+    <p>Menampilkan daftar dengan angka atau huruf sebagai urutan.</p>
+    <pre><code>&lt;ol&gt;
+  &lt;li&gt;Buka Visual Studio Code&lt;/li&gt;
+  &lt;li&gt;Buat file HTML&lt;/li&gt;
+  &lt;li&gt;Tulis kode dasar HTML&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+    <h3>Nested List (Daftar Bersarang):</h3>
+    <p>Kamu bisa menaruh list di dalam list lain.</p>
+    <pre><code>&lt;ul&gt;
+  &lt;li&gt;Frontend
+    &lt;ul&gt;
+      &lt;li&gt;HTML&lt;/li&gt;
+      &lt;li&gt;CSS&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Backend&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+    <h3>&lt;li&gt; (List Item)</h3>
+    <p>
+      <code>&lt;li&gt;</code> adalah singkatan dari <strong>List Item</strong>. Tag ini digunakan untuk membuat satu item dalam sebuah daftar.
+    </p>
+    <p>
+      Tapi <code>&lt;li&gt;</code> tidak berdiri sendiri — dia harus berada di dalam:
+    </p>
+    <ul>
+      <li><code>&lt;ul&gt;</code></li>
+      <li><code>&lt;ol&gt;</code></li>
+    </ul>
+
+    <h4>Kenapa &lt;li&gt; Harus Di Dalam &lt;ul&gt;/&lt;ol&gt;?</h4>
+    <p>
+      Karena tag <code>&lt;li&gt;</code> hanya valid digunakan di dalam <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, atau <code>&lt;menu&gt;</code>.
+    </p>
+    <p>
+      Jika tidak berada di dalam tag yang sesuai, maka:
+    </p>
+    <ul>
+      <li>Browser akan bingung konteksnya</li>
+      <li>Struktur HTML jadi tidak valid</li>
+      <li>Bisa menyebabkan tampilan kacau atau error di beberapa browser</li>
+    </ul>
+  </div>
+</div>
+ 
+
+
+<div id="tautan" class="content-section">
+  <h2><i class="fas fa-link"></i> Tag Tautan (a)</h2>
+  <div class="materi">
+    <p>
+      Tag <code>&lt;a&gt;</code> digunakan untuk membuat <strong>tautan atau hyperlink</strong> di halaman web. Tautan bisa mengarah ke:
+    </p>
+    <ul>
+      <li>Halaman lain di situs yang sama</li>
+      <li>Website eksternal</li>
+      <li>Bagian tertentu di halaman (anchor link)</li>
+      <li>File yang bisa diunduh</li>
+    </ul>
+
+    <h3>Struktur Dasar:</h3>
+    <pre><code>&lt;a href="URL"&gt;Teks Tautan&lt;/a&gt;</code></pre>
+
+    <p>Contoh:</p>
+    <pre><code>&lt;a href="https://www.google.com"<br>&gt;Kunjungi Google&lt;/a&gt;</code></pre>
+
+    <h3>Tautan ke Halaman Lokal:</h3>
+    <pre><code>&lt;a href="halaman2.html"&gt;Ke Halaman 2&lt;/a&gt;</code></pre>
+
+    <h3>Tautan dengan Target:</h3>
+    <p>Gunakan atribut <code>target="_blank"</code> untuk membuka link di tab baru.</p>
+    <pre><code>&lt;a href="https://youtube.com" target="_blank"&gt;Buka YouTube&lt;/a&gt;</code></pre>
+
+    <h3>Tautan ke Bagian Halaman:</h3>
+    <p>Gunakan <code>#id</code> untuk lompat ke elemen tertentu dalam halaman yang sama.</p>
+    <pre><code>&lt;a href="#footer"&gt;Lompat ke Footer&lt;/a&gt;</code></pre>
+
+    <h3>Tautan untuk Unduh File:</h3>
+    <pre><code>&lt;a href="ebook.pdf" download&gt;Unduh Ebook&lt;/a&gt;</code></pre>
+  </div>
+</div>
+
+<div id="gambar" class="content-section">
+  <h2><i class="fas fa-image"></i> Tag Gambar (img)</h2>
+  <div class="materi">
+    <p>
+      Tag <code>&lt;img&gt;</code> digunakan untuk menampilkan gambar pada halaman web. Tag ini termasuk **self-closing** (tidak membutuhkan tag penutup).
+    </p>
+
+    <h3>Struktur Dasar:</h3>
+    <pre><code>&lt;img src="gambar.jpg" alt="Deskripsi Gambar"&gt;</code></pre>
+
+    <p>Keterangan atribut:</p>
+    <ul>
+      <li><code>src</code> (source): URL atau path ke file gambar</li>
+      <li><code>alt</code> (alternative text): Teks alternatif jika gambar gagal dimuat (juga penting untuk SEO dan aksesibilitas)</li>
+    </ul>
+
+    <h3>Contoh Gambar dari Folder Lokal:</h3>
+    <pre><code>&lt;img src="images/logo.png" alt="Logo Website"&gt;</code></pre>
+
+    <h3>Contoh Gambar dari Link Internet:</h3>
+    <pre><code>&lt;img src="https://www.example.com/ <br>  foto.jpg" alt="Foto Online"&gt;</code></pre>
+
+    <h3>Menentukan Ukuran Gambar:</h3>
+    <pre><code>&lt;img src="gambar.jpg" alt="Gambar" width="300" height="200"&gt;</code></pre>
+    <p>Lebih baik atur ukuran gambar menggunakan CSS agar lebih fleksibel.</p>
+
+    <h3>Membuat Gambar Jadi Tautan:</h3>
+    <pre><code>&lt;a href="https://google.com"&gt;
+     &lt;img src="google-logo.png" alt="Google"&gt;
+
+
+    <h3>Tips Tambahan:</h3>
+    <ul>
+      <li>Gunakan gambar dengan ukuran file kecil agar halaman lebih cepat dimuat</li>
+      <li>Selalu sertakan <code>alt</code> untuk aksesibilitas</li>
+      <li>Gunakan format gambar yang sesuai seperti <code>.jpg</code>, <code>.png</code>, <code>.webp</code></li>
+    </ul>
+  </div>
+</div>
+
+  <div id="tabel" class="content-section">
+  <h2><i class="fas fa-table"></i> Tag Tabel (table)</h2>
+  <div class="materi">
+    <p>
+      Tag <code>&lt;table&gt;</code> digunakan untuk membuat tabel di halaman web. Tabel berguna untuk menampilkan data dalam bentuk baris dan kolom.
+    </p>
+
+    <h3>Struktur Dasar Tabel:</h3>
+    <pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Nama&lt;/th&gt;
+    &lt;th&gt;Umur&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Andi&lt;/td&gt;
+    &lt;td&gt;20&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Budi&lt;/td&gt;
+    &lt;td&gt;22&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+    <h3>Keterangan Tag:</h3>
+    <ul>
+      <li><code>&lt;table&gt;</code> : Membungkus seluruh isi tabel</li>
+      <li><code>&lt;tr&gt;</code> (Table Row) : Membuat baris dalam tabel</li>
+      <li><code>&lt;th&gt;</code> (Table Header) : Judul kolom (hurufnya tebal dan rata tengah secara default)</li>
+      <li><code>&lt;td&gt;</code> (Table Data) : Isi sel dari tabel</li>
+    </ul>
+
+    <h3>Contoh Tampilan:</h3>
+    <table border="1" cellpadding="8" style="margin-top: 1rem; background-color: #fff; color: #000;">
+      <tr>
+        <th>Nama</th>
+        <th>Umur</th>
+      </tr>
+      <tr>
+        <td>Andi</td>
+        <td>20</td>
+      </tr>
+      <tr>
+        <td>Budi</td>
+        <td>22</td>
+      </tr>
+    </table>
+
+    <h3>Tips Tambahan:</h3>
+    <ul>
+      <li>Gunakan CSS untuk mempercantik tampilan tabel</li>
+      <li>Gunakan <code>border</code>, <code>cellpadding</code>, dan <code>cellspacing</code> untuk mengatur jarak dan garis</li>
+      <li>Gunakan tag <code>&lt;thead&gt;</code>,<code>&lt;tbody&gt;</code>, dan <code>&lt;tfoot&gt;</code> untuk struktur tabel yang lebih rapi</li>
+    </ul>
+  </div>
+</div>
+
+
+
+<div id="formulir" class="content-section">
+  <h2><i class="fas fa-edit"></i> Tag Formulir (form)</h2>
+  <div class="materi">
+    <p>
+      Tag <code>&lt;form&gt;</code> digunakan untuk membuat formulir di halaman web, yaitu tempat pengguna bisa mengisi data seperti nama, email, dan lainnya. Form biasanya digunakan untuk login, pencarian, pendaftaran, dll.
+    </p>
+
+    <h3>Struktur Dasar Formulir:</h3>
+    <pre><code>&lt;form action="/submit" method="post"&gt;
+      
+  &lt;label for="nama"&gt;Nama:&lt;/label&gt;&lt;br&gt;
+  &lt;input type="text" id="nama" name="nama"&gt;&lt;br&gt;
+
+  &lt;label for="email"&gt;Email:&lt;/label&gt;&lt;br&gt;
+  &lt;input type="email" id="email" name="email"&gt;&lt;br&gt;
+
+  &lt;input type="submit" value="Kirim"&gt;
+&lt;/form&gt;</code></pre>
+
+    <h3>Penjelasan Atribut Penting:</h3>
+    <ul>
+      <li><code>action</code>: URL tujuan saat form dikirim (misalnya ke server)</li>
+      <li><code>method</code>: Cara pengiriman data, biasanya <code>GET</code> atau <code>POST</code></li>
+    </ul>
+
+    <h3>Tag Input Umum di Dalam Form:</h3>
+    <ul>
+      <li><code>&lt;input type="text"&gt;</code> : Input teks biasa</li>
+      <li><code>&lt;input type="email"&gt;</code> : Input khusus email</li>
+      <li><code>&lt;input type="password"&gt;</code> : Input password (tertutup)</li>
+      <li><code>&lt;input type="radio"&gt;</code> dan <code>&lt;input type="checkbox"&gt;</code> : Pilihan</li>
+      <li><code>&lt;textarea&gt;</code> : Kolom input banyak baris</li>
+      <li><code>&lt;select&gt;</code> : Dropdown pilihan</li>
+    </ul>
+
+    <h3>Contoh Tampilan Form Sederhana:</h3>
+    <form style="margin-top: 1rem; background-color: #fff; color: #000; padding: 1rem; border-radius: 8px;">
+    <div class="form-input">
+      <label for="nama">Username:</label><br>
+      <input type="text" id="nama" name="nama"><br><br>
+
+      <label for="password">Password:</label><br>
+      <input type="text" id="password" name="password"><br><br>
+
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email"><br><br>
+
+      <input type="submit" value="Kirim">
+    </div>
+    </form>
+
+    <h3>Tips Tambahan:</h3>
+    <ul>
+      <li>Selalu gunakan <code>&lt;label&gt;</code> agar form lebih mudah diakses</li>
+      <li>Gunakan <code>placeholder</code> untuk memberi contoh input</li>
+      <li>Untuk validasi, kamu bisa gunakan atribut seperti <code>required</code>, <code>minlength</code>, <code>pattern</code>, dll.</li>
+    </ul>
+  </div>
+</div>
+
+<div id="layout" class="content-section">
+  <h2><i class="fas fa-square"></i> Tag Layout div, span</h2>
+  <div class="materi">
+    <p>
+      Tag <code>&lt;div&gt;</code> dan <code>&lt;span&gt;</code> digunakan untuk pengelompokan dan pengaturan layout konten di HTML. Keduanya tidak memiliki tampilan visual secara default, tetapi sangat penting dalam struktur halaman web.
+    </p>
+
+    <h3>Tag <code>&lt;div&gt;</code>:</h3>
+    <p>
+      Digunakan untuk membungkus elemen blok seperti paragraf, gambar, form, tabel, dan lain-lain.
+    </p>
+    <pre><code>&lt;div&gt;
+  &lt;h2&gt;Judul Artikel&lt;/h2&gt;
+  &lt;p&gt;Isi artikel...&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+    <p>
+      <strong>Catatan:</strong> Tag <code>&lt;div&gt;</code> adalah elemen **block-level**, artinya akan memulai baris baru.
+    </p>
+
+    <h3>Tag <code>&lt;span&gt;</code>:</h3>
+    <p>
+      Digunakan untuk membungkus teks atau elemen kecil di dalam baris, biasanya untuk memberi gaya dengan CSS.
+    </p>
+    <pre><code>&lt;p&gt;Ini adalah &lt;span style="color: red;"&gt;teks berwarna merah&lt;/span&gt; di dalam paragraf.&lt;/p&gt;</code></pre>
+
+    <p>
+      <strong>Catatan:</strong> Tag <code>&lt;span&gt;</code> adalah elemen **inline**, artinya tidak membuat baris baru.
+    </p>
+
+    <h3>Perbedaan div vs span:</h3>
+    <table border="1" cellpadding="8" style="margin-top: 1rem; background-color: #fff; color: #000;">
+      <tr>
+        <th>div</th>
+        <th>span</th>
+      </tr>
+      <tr>
+        <td>Elemen blok (block-level)</td>
+        <td>Elemen sebaris (inline)</td>
+      </tr>
+      <tr>
+        <td>Digunakan untuk struktur besar</td>
+        <td>Digunakan untuk bagian kecil dalam teks</td>
+      </tr>
+      <tr>
+        <td>Membuat baris baru</td>
+        <td>Tidak membuat baris baru</td>
+      </tr>
+    </table>
+
+    <h3>Tips:</h3>
+    <ul>
+      <li>Gunakan <code>&lt;div&gt;</code> untuk membagi halaman jadi bagian: header, konten, sidebar, footer, dll.</li>
+      <li>Gunakan <code>&lt;span&gt;</code> untuk menandai kata/kalimat tertentu untuk diberi gaya CSS</li>
+      <li>Selalu beri class atau id untuk styling dan manipulasi dengan CSS/JavaScript</li>
+    </ul>
+  </div>
+</div>
+
+<div id="semantic" class="content-section">
+  <h2><i class="fas fa-cube"></i> Semantic HTML</h2>
+  <div class="materi">
+    <p>
+      <strong>Semantic HTML</strong> adalah penggunaan tag HTML yang memiliki makna jelas terhadap isi yang dibungkusnya. Tujuannya adalah agar struktur dokumen lebih terorganisir, mudah dibaca oleh developer, dan dipahami dengan baik oleh mesin pencari maupun teknologi bantu seperti screen reader.
+    </p>
+
+    <h3>Contoh Tag Semantik:</h3>
+    <ul>
+      <li><code>&lt;header&gt;</code> – Bagian atas halaman, biasanya berisi logo atau navigasi</li>
+      <li><code>&lt;nav&gt;</code> – Menandai bagian navigasi</li>
+      <li><code>&lt;main&gt;</code> – Menandai konten utama halaman</li>
+      <li><code>&lt;article&gt;</code> – Konten mandiri seperti artikel berita atau posting blog</li>
+      <li><code>&lt;section&gt;</code> – Bagian dari konten yang bertema sama</li>
+      <li><code>&lt;aside&gt;</code> – Konten sampingan (sidebar, info tambahan)</li>
+      <li><code>&lt;footer&gt;</code> – Bagian bawah halaman, biasanya berisi kontak, copyright, dsb.</li>
+    </ul>
+
+    <h3>Contoh Penggunaan:</h3>
+    <pre><code>&lt;header&gt;
+  &lt;h1&gt;Belajar HTML&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+  &lt;article&gt;
+    &lt;h2&gt;Apa itu Semantic HTML?&lt;/h2&gt;
+    &lt;p&gt;Tag semantik membuat struktur halaman lebih bermakna...&lt;/p&gt;
+  &lt;/article&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+  &lt;p&gt;&copy; 2025 TeknoDev&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+
+    <h3>Perbedaan dengan Tag Non-Semantik:</h3>
+    <table border="1" cellpadding="8" style="margin-top: 1rem; background-color: #fff; color: #000;">
+      <tr>
+        <th>Tag Semantik</th>
+        <th>Tag Non-Semantik</th>
+      </tr>
+      <tr>
+        <td><code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code></td>
+        <td><code>&lt;div&gt;</code>, <code>&lt;span&gt;</code></td>
+      </tr>
+      <tr>
+        <td>Memiliki makna jelas tentang isi</td>
+        <td>Tidak menjelaskan arti dari konten</td>
+      </tr>
+      <tr>
+        <td>Lebih baik untuk SEO dan aksesibilitas</td>
+        <td>Kurang deskriptif untuk bot/search engine</td>
+      </tr>
+    </table>
+
+    <h3>Tips:</h3>
+    <ul>
+      <li>Gunakan semantic tag untuk struktur halaman yang lebih baik</li>
+      <li>Gabungkan semantic tag dengan CSS agar tampil menarik</li>
+      <li>Sangat disarankan untuk keperluan SEO dan pengembangan profesional</li>
+    </ul>
+  </div>
+</div>
+
+<div id="komentar" class="content-section">
+  <h2><i class="fas fa-comment"></i> Komentar di HTML</h2>
+  <div class="materi">
+    <p>
+      Komentar di HTML digunakan untuk menambahkan catatan atau penjelasan dalam kode yang tidak akan ditampilkan di browser. Ini sangat berguna untuk dokumentasi dan kolaborasi antar developer.
+    </p>
+
+    <h3>Format Komentar:</h3>
+    <pre><code>&lt;!-- Ini adalah komentar --&gt;</code></pre>
+
+        <h3>Contoh Penggunaan:</h3>
+        <pre><code>&lt;!-- Bagian header website --&gt;</code></pre>
+        <pre><code>&lt;header&gt;
+      Selamat Datang di TeknoDev
+    &lt;/header&gt;</code></pre>
+
+    <h3>Catatan penting</h3>
+    <ul>
+      <li>Jangan gunakan komentar HTML untuk menyimpan informasi sensitif seperti password,karena tetap bisa dilihat oleh pengguna dengan melihat source code halaman</li><br>
+
+
+        <li>Komentar tidak mendukung nested(tidak bisa menaruh komentar didalam komentar)</li>
+        <h3>Contoh Kode</h3>
+          <pre><code>&lt;!-- Ini benar --&gt;
+
+&lt;!--
+  &lt;p&gt;Paragraf ini tidak akan muncul&lt;/p&gt;
+--&gt;
+
+&lt;!-- Ini salah --&gt;
+&lt;!-- &lt;p&gt; &lt;!-- nested komentar --&gt; &lt;/p&gt; --&gt;
+</code></pre>
+
+   <h3>Kapan Sebaiknya menggunakan Komentar?</h3>
+  <ul>
+      <li>Untuk menjelaskan bagian kode yang kompleks</li>
+      <li>Memberi tahu developer lain tentang tujuan kode tertentu</li>
+      <li>Mengomentari kode sementara saat debugging</li>
+      <li>Menandai TODO atau bagian yang perlu diperbaiki di masa depan</li>
+      <li>Saat ingin menandai bagian tertentu dari layout(header,footer,sidebar)</li>
+  </ul>
+  </div>
+</div>
+
+<div id="simbol" class="content-section">
+  <h2><i class="fa-solid fa-copyright"></i> Character Entity (Simbol Khusus)</h2>
+  <div class="materi">
+    <p>
+      Dalam HTML, ada beberapa karakter yang memiliki arti khusus (seperti <code>&lt;</code>, <code>&gt;</code>, dan <code>&amp;</code>). Jika kamu ingin menampilkan simbol tersebut sebagai teks biasa, kamu harus menggunakan <strong>HTML Character Entities</strong>.
+    </p>
+
+    <h3>Kenapa Perlu Character Entity?</h3>
+    <ul>
+      <li>Karena beberapa karakter punya fungsi khusus dalam HTML (misalnya <code>&lt;</code> untuk membuka tag).</li>
+      <li>Untuk menampilkan karakter yang tidak ada di keyboard.</li>
+    </ul>
+
+    <h3>Contoh Umum:</h3>
+    <table border="1" cellpadding="8" style="margin-top: 1rem; background-color: #fff; color: #000;">
+      <tr>
+        <th>Entity</th>
+        <th>Hasil</th>
+        <th>Deskripsi</th>
+      </tr>
+      <tr>
+        <td><code>&amp;lt;</code></td>
+        <td>&lt;</td>
+        <td>Kurang dari ( < )</td>
+      </tr>
+      <tr>
+        <td><code>&amp;gt;</code></td>
+        <td>&gt;</td>
+        <td>Lebih dari ( > )</td>
+      </tr>
+      <tr>
+        <td><code>&amp;amp;</code></td>
+        <td>&amp;</td>
+        <td>Simbol ampersand ( & )</td>
+      </tr>
+      <tr>
+        <td><code>&amp;quot;</code></td>
+        <td>&quot;</td>
+        <td>Tanda kutip ganda ( " )</td>
+      </tr>
+      <tr>
+        <td><code>&amp;nbsp;</code></td>
+        <td>[ ]</td>
+        <td>Spasi non-breaking</td>
+      </tr>
+      <tr>
+        <td><code>&amp;copy;</code></td>
+        <td>&copy;</td>
+        <td>Simbol copyright</td>
+      </tr>
+      <tr>
+        <td><code>&amp;reg;</code></td>
+        <td>&reg;</td>
+        <td>Simbol registered trademark</td>
+      </tr>
+      <tr>
+        <td><code>&amp;hearts;</code></td>
+        <td>&hearts;</td>
+        <td>Simbol hati (♥)</td>
+      </tr>
+    </table>
+
+    <h3>Cara Penulisan:</h3>
+    <p>Gunakan format <code>&amp;[nama];</code> atau <code>&amp;#[kode];</code>. Contoh:</p>
+    <pre><code>&lt;p&gt;2 &amp;lt; 5 artinya 2 lebih kecil dari 5&lt;/p&gt;
+&lt;p&gt;&amp;copy; 2025 TeknoDev&lt;/p&gt;</code></pre>
+
+    <h3>Tips:</h3>
+    <ul>
+      <li>Gunakan <a href="https://dev.w3.org/html5/html-author/charref" target="_blank">referensi resmi</a> jika butuh simbol lebih banyak.</li>
+      <li>Gunakan <code>&amp;nbsp;</code> untuk membuat spasi tambahan.</li>
+      <li>Entity sangat penting untuk menjaga validitas kode saat menampilkan simbol khusus.</li>
+    </ul>
+  </div>
+</div>
+
+<div id="multimedia" class="content-section">
+  <h2><i class="fas fa-video"></i> Tag Multimedia: audio, video, iframe</h2>
+  <div class="materi">
+    <p>
+      HTML memungkinkan kamu menampilkan konten multimedia seperti suara, video, dan konten dari situs lain dengan mudah menggunakan tag khusus.
+    </p>
+
+    <h3><code>&lt;audio&gt;</code> – Untuk Memutar Suara:</h3>
+    <p>Digunakan untuk menyisipkan file audio di halaman web.</p>
+    <pre><code>&lt;audio controls&gt;
+  &lt;source src="lagu.mp3" type="audio/mpeg"&gt;
+  Browser kamu tidak mendukung audio.
+&lt;/audio&gt;</code></pre>
+
+    <ul>
+      <li><code>controls</code>: Menampilkan tombol play/pause</li>
+      <li><code>autoplay</code>: Audio diputar otomatis</li>
+      <li><code>loop</code>: Memutar berulang</li>
+    </ul>
+
+    <h3><code>&lt;video&gt;</code> – Untuk Menampilkan Video:</h3>
+    <p>Digunakan untuk menyisipkan file video.</p>
+    <pre><code>&lt;video width="320" height="240" controls&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+  Browser kamu tidak mendukung video.
+&lt;/video&gt;</code></pre>
+
+    <ul>
+      <li><code>controls</code>: Menampilkan kontrol video</li>
+      <li><code>poster</code>: Gambar awal sebelum video diputar</li>
+      <li><code>autoplay</code>, <code>loop</code>, dan <code>muted</code> juga tersedia</li>
+    </ul>
+
+    <h3><code>&lt;iframe&gt;</code> – Menyisipkan Halaman/Video dari Luar:</h3>
+    <p>Digunakan untuk menyematkan konten dari situs lain, seperti YouTube, Google Maps, dll.</p>
+    <pre><code>&lt;iframe width="560" height="315"
+  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+  title="YouTube video player"
+  frameborder="0"
+  allowfullscreen&gt;
+&lt;/iframe&gt;</code></pre>
+
+    <h3>Tips Tambahan:</h3>
+    <ul>
+      <li>Pastikan format file didukung browser (misalnya MP4 untuk video, MP3 untuk audio)</li>
+      <li>Gunakan <code>&lt;source&gt;</code> lebih dari satu jika ingin dukung banyak format</li>
+      <li>Untuk video/audio eksternal (YouTube, SoundCloud), gunakan <code>&lt;iframe&gt;</code></li>
+    </ul>
+
+    <h3>Contoh Nyata:</h3>
+    <p>Berikut demo tag audio dan video:</p>
+    <audio controls style="margin-top: 1rem;">
+      <source src="audio.mp3" type="audio/mpeg">
+      Browser kamu tidak mendukung pemutar audio.
+    </audio>
+
+    <video width="320" height="240" controls style="margin-top: 1rem;">
+      <source src="video.mp4" type="video/mp4">
+      Browser kamu tidak mendukung pemutar video.
+    </video>
+  </div>
+</div>
+
+ <div id="html5" class="content-section">
+  <h2><i class="fas fa-star"></i> HTML5: Apa yang Baru?</h2>
+  <div class="materi">
+    <p>
+      HTML5 adalah versi terbaru dari HTML yang membawa banyak fitur baru untuk mendukung pengembangan web modern. Tidak hanya menyederhanakan penulisan HTML, tapi juga menghadirkan kemampuan multimedia dan struktur yang lebih baik.
+    </p>
+
+    <h3>🔹 Elemen Baru untuk Struktur Konten:</h3>
+    <ul>
+      <li><code>&lt;header&gt;</code>: Bagian atas halaman atau bagian</li>
+      <li><code>&lt;nav&gt;</code>: Navigasi (menu tautan)</li>
+      <li><code>&lt;section&gt;</code>: Bagian/topik konten</li>
+      <li><code>&lt;article&gt;</code>: Konten mandiri seperti postingan blog</li>
+      <li><code>&lt;aside&gt;</code>: Konten sampingan (sidebar, iklan, dsb)</li>
+      <li><code>&lt;footer&gt;</code>: Bagian bawah halaman atau bagian</li>
+    </ul>
+
+    <h3>🔹 Elemen Multimedia:</h3>
+    <ul>
+      <li><code>&lt;audio&gt;</code> dan <code>&lt;video&gt;</code>: Memutar media langsung tanpa plugin</li>
+      <li><code>&lt;track&gt;</code>: Teks atau subtitle untuk video/audio</li>
+    </ul>
+
+    <h3>🔹 Elemen Form Baru:</h3>
+    <ul>
+      <li><code>&lt;input type="email"&gt;</code></li>
+      <li><code>&lt;input type="date"&gt;</code></li>
+      <li><code>&lt;input type="range"&gt;</code></li>
+      <li><code>&lt;input type="color"&gt;</code></li>
+      <li><code>placeholder</code>, <code>required</code>, <code>pattern</code>, dan atribut validasi lainnya</li>
+    </ul>
+
+    <h3>🔹 API dan Kemampuan Baru:</h3>
+    <ul>
+      <li>Canvas API – Menggambar grafik 2D di web</li>
+      <li>Geolocation API – Mengetahui lokasi pengguna</li>
+      <li>LocalStorage & SessionStorage – Menyimpan data di browser</li>
+    </ul>
+
+    <h3>🔹 Contoh Elemen Baru:</h3>
+    <pre><code>&lt;article&gt;
+  &lt;header&gt;
+    &lt;h2&gt;Judul Artikel&lt;/h2&gt;
+    &lt;p&gt;Ditulis oleh Admin&lt;/p&gt;
+  &lt;/header&gt;
+  &lt;p&gt;Ini adalah isi dari artikel utama.&lt;/p&gt;
+  &lt;footer&gt;Diposting pada 2025&lt;/footer&gt;
+&lt;/article&gt;</code></pre>
+
+    <h3>🔹 Kenapa Harus Pakai HTML5?</h3>
+    <ul>
+      <li>Lebih semantik, jadi lebih mudah dipahami oleh manusia dan mesin pencari</li>
+      <li>Mendukung konten multimedia secara native</li>
+      <li>Lebih ramah SEO dan lebih modern</li>
+      <li>Bisa diakses di semua perangkat (PC, mobile, tablet)</li>
+    </ul>
+  </div>
+</div>
+
+</div>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/sidebar.js')}}"></script>
+</body>
+</html>

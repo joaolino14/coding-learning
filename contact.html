@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hubungi Dan Donasi saya melalui Contact">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/database.css') }}">
+   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+  <title>TeknoDev - Contact</title>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <h1 class="text-logo">TeknoDev</h1>
+    </div>
+    <div class="hamburger-bars">
+      <button id="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    </div>
+    <ul class="nav-links">
+      <li><a href="{{ url_for('index') }}">Home</a></li>
+      <li><a href="{{ url_for('latihan') }}">Latihan</a></li>
+      <li><a href="{{ url_for('ai_page') }}">Tanya AI</a></li>
+      <li><a href="{{ url_for('kuis') }}">Kuis</a></li>
+      <li><a href="/about">Tentang Saya</a></li>
+      <li><a href="{{ url_for('contact') }}">Donasi</a></li>
+    </ul>
+  </nav>
+
+  <div class="contact-container">
+    <div class="contact-form">
+      <h2>Hubungi Kami</h2>
+
+      <form method="POST" id="contact-form">
+
+        <div class="form-group">
+          <label for="nama">Nama:</label>
+          <input type="text" id="nama" name="nama" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="pesan">Pesan:</label>
+          <textarea id="pesan" name="pesan" rows="5" required></textarea>
+        </div>
+        
+        <button type="submit" class="btn-submit">Kirim Pesan</button>
+          <p id="my-form-status" class="form-status"></p>
+      </form>
+    </div>
+
+    <div class="donation-box">
+      <div class="donation-card">
+        <h3><i class="fas fa-heart"></i> Dukung Kami</h3>
+        <p>Bantu pengembangan TeknoDev dengan donasi Anda!</p>
+        
+        <div class="donation-methods">
+          <div class="method">
+            <i class="fab fa-paypal"></i>
+            <a href="https://paypal.me/MarcelinoJoan" target="_blank" class="donate-btn">PayPal</a>
+          </div>
+          
+          <div class="method">
+            <i class="fas fa-wallet"></i>
+            <a href="#" class="donate-btn" id="show-bca">Dana</a>
+            <div class="bank-details" id="bca-details">
+              <p>(+62) 831-3366-2635</p>
+              <p>a.n TeknoDev</p>
+            </div>
+          </div>
+          
+          <div class="method">
+            <i class="fas fa-coins"></i>
+            <a href="#" class="donate-btn crypto-btn">
+              Crypto
+              <span class="crypto-dropdown">
+                <span>Bitcoin:bc1qg3wpwhdng83<br>297rk4hmm57qz2e76kplaahrd0q</span>
+                <span>Ethereum: 0x50786e10fED4<br>24D46342da0731874397a0CE0683</span>
+              </span>
+            </a>
+          </div>
+        </div>
+        
+        <div class="donation-animation">
+          <div class="coin"></div>
+          <div class="coin"></div>
+          <div class="coin"></div>
+          <div class="piggy-bank">
+            <i class="fas fa-piggy-bank"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/database.js')}}"></script>
+ 
+</body>
+</html>

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Materi CSS">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css')}}">
+  <title>TeknoDev - CSS</title>
+</head>
+<body>
+  <header class="navbar">
+    <button class="openBtn" onclick="openNav()">
+      <i class="fas fa-bars"></i> Menu
+    </button>
+    <h1 class="title">CSS Learning</h1>
+  </header>
+
+  <div class="sidebar" id="sidebar">
+    <button class="closeBtn" onclick="closeNav()">
+      <i class="fas fa-times"></i> Close
+    </button>
+    <div class="sidebar-links">
+      <a href="#" data-content="pengenalan"><i class="fas fa-play"></i> Pengenalan CSS</a>
+      <a href="#" data-content="syntax"><i class="fas fa-code"></i> Syntax Dasar CSS</a>
+      <a href="#" data-content="selector"><i class="fas fa-mouse-pointer"></i> Selector CSS</a>
+      <a href="#" data-content="box-model"><i class="fas fa-box"></i> Box Model</a>
+      <a href="#" data-content="layout"><i class="fas fa-th"></i> Layout CSS</a>
+      <a href="#" data-content="flexbox"><i class="fas fa-align-justify"></i> Flexbox</a>
+      <a href="#" data-content="grid"><i class="fas fa-th-large"></i> CSS Grid</a>
+      <a href="#" data-content="responsive"><i class="fas fa-mobile-alt"></i> Responsive Design</a>
+      <a href="#" data-content="transition"><i class="fas fa-exchange-alt"></i> Transisi & Animasi</a>
+      <a href="#" data-content="transform"><i class="fas fa-arrows-alt"></i> Transform</a>
+      <a href="#" data-content="variables"><i class="fas fa-at"></i> CSS Variables</a>
+      <a href="#" data-content="preprocessor"><i class="fas fa-cog"></i> Preprocessor (Sass/Less)</a>
+      <a href="#" data-content="frameworks"><i class="fas fa-cubes"></i> CSS Frameworks</a>
+      <a href="#" data-content="best-practices"><i class="fas fa-star"></i> Best Practices</a>
+    </div>
+  </div>
+
+  <main class="content">
+    <div class="container">
+      <!-- Konten default saat pertama kali load -->
+      <div id="default-content">
+        <h2>Selamat Belajar CSS</h2>
+        <p>Pilih materi dari sidebar untuk memulai pembelajaran.</p>
+      </div>
+
+      <!-- Konten untuk masing-masing materi -->
+      <div id="pengenalan" class="content-section">
+        <h2><i class="fas fa-play"></i> Pengenalan CSS</h2>
+        <div class="materi">
+          <p>CSS (Cascading Style Sheets) adalah bahasa stylesheet yang digunakan untuk mengatur tampilan dokumen HTML.</p>
+          
+          <h3>Sejarah CSS:</h3>
+          <ul>
+            <li>Diusulkan oleh Håkon Wium Lie pada tahun 1994</li>
+            <li>Versi pertama: CSS1 (1996)</li>
+            <li>CSS3 adalah versi modular yang dirilis bertahap sejak 1999</li>
+          </ul>
+          
+          <h3>Fungsi CSS:</h3>
+          <ul>
+            <li>Mengatur tata letak halaman web</li>
+            <li>Mengontrol warna, font, dan ukuran teks</li>
+            <li>Membuat tampilan responsif</li>
+            <li>Menambahkan animasi dan efek visual</li>
+          </ul>
+          
+          <div class="code-example">
+            <h3>Contoh Kode CSS Sederhana:</h3>
+            <pre><code>body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="syntax" class="content-section">
+        <h2><i class="fas fa-code"></i> Syntax Dasar CSS</h2>
+        <div class="materi">
+          <p>CSS terdiri dari selector dan declaration block yang berisi properti dan nilai.</p>
+          
+          <h3>Struktur Dasar:</h3>
+          <pre><code>selector {
+  property: value;
+  property: value;
+}</code></pre>
+          
+          <h3>Contoh:</h3>
+          <pre><code>p {
+  color: blue;
+  font-size: 16px;
+  margin: 10px 0;
+}</code></pre>
+          
+          <h3>Cara Menambahkan CSS ke HTML:</h3>
+          <ul>
+            <li><strong>Inline CSS</strong>: Langsung di elemen HTML
+              <pre><code>&lt;p style="color: red;"&gt;Teks merah&lt;/p&gt;</code></pre>
+            </li>
+            <li><strong>Internal CSS</strong>: Di dalam tag &lt;style&gt; di head
+              <pre><code>&lt;style&gt;
+  p { color: red; }
+&lt;/style&gt;</code></pre>
+            </li>
+            <li><strong>External CSS</strong>: File terpisah (.css) yang dihubungkan
+              <pre><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="selector" class="content-section">
+        <h2><i class="fas fa-mouse-pointer"></i> Selector CSS</h2>
+        <div class="materi">
+          <p>Selector digunakan untuk memilih elemen HTML yang akan diberi style.</p>
+          
+          <h3>Jenis-jenis Selector:</h3>
+          <ul>
+            <li><strong>Element Selector</strong>: Memilih berdasarkan nama tag
+              <pre><code>p { color: blue; }</code></pre>
+            </li>
+            <li><strong>Class Selector</strong>: Memilih berdasarkan class (diawali .)
+              <pre><code>.warning { color: red; }</code></pre>
+            </li>
+            <li><strong>ID Selector</strong>: Memilih berdasarkan id (diawali #)
+              <pre><code>#header { background: #333; }</code></pre>
+            </li>
+            <li><strong>Attribute Selector</strong>: Memilih berdasarkan atribut
+              <pre><code>input[type="text"] { border: 1px solid #ccc; }</code></pre>
+            </li>
+            <li><strong>Pseudo-class</strong>: Memilih state khusus
+              <pre><code>a:hover { color: green; }</code></pre>
+            </li>
+          </ul>
+          
+          <h3>Kombinasi Selector:</h3>
+          <pre><code>/* Semua elemen p dengan class warning */
+p.warning { color: orange; }
+
+/* Elemen dengan class warning dan danger */
+.warning.danger { background: red; }
+
+/* Child selector */
+ul > li { list-style: none; }</code></pre>
+        </div>
+      </div>
+
+      <div id="box-model" class="content-section">
+        <h2><i class="fas fa-box"></i> Box Model</h2>
+        <div class="materi">
+          <p>Setiap elemen HTML adalah sebuah box yang terdiri dari content, padding, border, dan margin.</p>
+          
+          <div class="box-model-diagram">
+            <img src="https://www.w3schools.com/css/box-model.gif" alt="CSS Box Model Diagram" style="max-width: 100%;">
+          </div>
+          
+          <h3>Komponen Box Model:</h3>
+          <ul>
+            <li><strong>Content</strong>: Area yang berisi konten (teks, gambar, dll)</li>
+            <li><strong>Padding</strong>: Ruang antara content dan border</li>
+            <li><strong>Border</strong>: Garis yang mengelilingi padding dan content</li>
+            <li><strong>Margin</strong>: Ruang di luar border, memisahkan elemen dari elemen lain</li>
+          </ul>
+          
+          <h3>Contoh:</h3>
+          <pre><code>.box {
+  width: 300px;
+  padding: 20px;
+  border: 5px solid black;
+  margin: 10px;
+  background-color: lightblue;
+}</code></pre>
+          
+          <h3>Box Sizing:</h3>
+          <p>Secara default, width dan height hanya mengatur ukuran content. Gunakan <code>box-sizing</code> untuk mengubah:</p>
+          <pre><code>/* Total width = width + padding + border */
+.box { box-sizing: border-box; }</code></pre>
+        </div>
+      </div>
+
+      <div id="layout" class="content-section">
+        <h2><i class="fas fa-th"></i> Layout CSS</h2>
+        <div class="materi">
+          <p>CSS menyediakan beberapa teknik untuk mengatur tata letak elemen di halaman web.</p>
+          
+          <h3>Display Property:</h3>
+          <ul>
+            <li><code>display: block</code> - Elemen mengambil seluruh lebar (div, p, h1-h6)</li>
+            <li><code>display: inline</code> - Elemen mengalir dalam baris (span, a, strong)</li>
+            <li><code>display: inline-block</code> - Gabungan block dan inline</li>
+            <li><code>display: none</code> - Menyembunyikan elemen</li>
+          </ul>
+          
+          <h3>Positioning:</h3>
+          <ul>
+            <li><code>position: static</code> - Posisi normal (default)</li>
+            <li><code>position: relative</code> - Relatif terhadap posisi normal</li>
+            <li><code>position: absolute</code> - Relatif terhadap elemen parent terdekat yang positioned</li>
+            <li><code>position: fixed</code> - Relatif terhadap viewport (tetap saat scroll)</li>
+            <li><code>position: sticky</code> - Gabungan relative dan fixed</li>
+          </ul>
+          
+          <h3>Float:</h3>
+          <pre><code>.image {
+  float: left;
+  margin-right: 15px;
+}</code></pre>
+        </div>
+      </div>
+
+      <div id="flexbox" class="content-section">
+        <h2><i class="fas fa-align-justify"></i> Flexbox</h2>
+        <div class="materi">
+          <p>Flexbox adalah model layout satu dimensi untuk mengatur distribusi ruang dan alignment.</p>
+          
+          <h3>Konsep Dasar:</h3>
+          <ul>
+            <li><strong>Flex Container</strong>: Elemen parent dengan <code>display: flex</code></li>
+            <li><strong>Flex Items</strong>: Elemen anak langsung dari container</li>
+            <li><strong>Main Axis</strong>: Sumbu utama (default horizontal)</li>
+            <li><strong>Cross Axis</strong>: Sumbu tegak lurus main axis</li>
+          </ul>
+          
+          <h3>Container Properties:</h3>
+          <pre><code>.container {
+  display: flex;
+  flex-direction: row | row-reverse | column | column-reverse;
+  justify-content: flex-start | flex-end | center | space-between | space-around;
+  align-items: stretch | flex-start | flex-end | center | baseline;
+  flex-wrap: nowrap | wrap | wrap-reverse;
+}</code></pre>
+          
+          <h3>Item Properties:</h3>
+          <pre><code>.item {
+  order: &lt;integer&gt;;
+  flex-grow: &lt;number&gt;;
+  flex-shrink: &lt;number&gt;;
+  flex-basis: &lt;length&gt; | auto;
+  align-self: auto | flex-start | flex-end | center | baseline | stretch;
+}</code></pre>
+        </div>
+      </div>
+
+      <div id="grid" class="content-section">
+        <h2><i class="fas fa-th-large"></i> CSS Grid</h2>
+        <div class="materi">
+          <p>CSS Grid adalah sistem layout dua dimensi yang powerful untuk membuat desain kompleks.</p>
+          
+          <h3>Konsep Dasar:</h3>
+          <ul>
+            <li><strong>Grid Container</strong>: Elemen dengan <code>display: grid</code></li>
+            <li><strong>Grid Item</strong>: Elemen anak langsung dari container</li>
+            <li><strong>Grid Line</strong>: Garis pembatas kolom dan baris</li>
+            <li><strong>Grid Track</strong>: Ruang antara dua garis (kolom atau baris)</li>
+            <li><strong>Grid Cell</strong>: Perpotongan antara kolom dan baris</li>
+            <li><strong>Grid Area</strong>: Satu atau lebih cell yang membentuk persegi panjang</li>
+          </ul>
+          
+          <h3>Container Properties:</h3>
+          <pre><code>.container {
+  display: grid;
+  grid-template-columns: 100px auto 100px;
+  grid-template-rows: 50px 1fr 50px;
+  grid-gap: 10px;
+  grid-template-areas: 
+    "header header header"
+    "sidebar main aside"
+    "footer footer footer";
+}</code></pre>
+          
+          <h3>Item Properties:</h3>
+          <pre><code>.item {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-area: header;
+}</code></pre>
+        </div>
+      </div>
+
+      <div id="responsive" class="content-section">
+        <h2><i class="fas fa-mobile-alt"></i> Responsive Design</h2>
+        <div class="materi">
+          <p>Desain responsif membuat website menyesuaikan tampilan berdasarkan ukuran layar perangkat.</p>
+          
+          <h3>Viewport Meta Tag:</h3>
+          <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+          
+          <h3>Media Queries:</h3>
+          <pre><code>/* Untuk layar lebar minimal 600px */
+@media (min-width: 600px) {
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+/* Untuk layar maksimal 480px */
+@media (max-width: 480px) {
+  nav {
+    display: none;
+  }
+}</code></pre>
+          
+          <h3>Unit Responsif:</h3>
+          <ul>
+            <li><code>%</code> - Relatif terhadap parent</li>
+            <li><code>vw/vh</code> - Relatif terhadap viewport width/height</li>
+            <li><code>rem</code> - Relatif terhadap root font-size</li>
+            <li><code>em</code> - Relatif terhadap font-size elemen saat ini</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="transition" class="content-section">
+        <h2><i class="fas fa-exchange-alt"></i> Transisi & Animasi</h2>
+        <div class="materi">
+          <p>CSS memungkinkan pembuatan efek transisi dan animasi tanpa JavaScript.</p>
+          
+          <h3>Transisi (Transition):</h3>
+          <pre><code>.button {
+  background: blue;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.button:hover {
+  background: darkblue;
+  transform: scale(1.05);
+}</code></pre>
+          
+          <h3>Animasi (Animation):</h3>
+          <pre><code>@keyframes slidein {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.slide-element {
+  animation: slidein 0.5s ease-in-out;
+}</code></pre>
+          
+          <h3>Property yang Dapat Dianimasikan:</h3>
+          <ul>
+            <li><code>transform</code> (scale, rotate, translate, skew)</li>
+            <li><code>opacity</code></li>
+            <li><code>color</code>, <code>background-color</code></li>
+            <li><code>width</code>, <code>height</code></li>
+            <li>Dan banyak lainnya</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="transform" class="content-section">
+        <h2><i class="fas fa-arrows-alt"></i> Transform</h2>
+        <div class="materi">
+          <p>CSS transform memungkinkan modifikasi ruang koordinat dari elemen.</p>
+          
+          <h3>Fungsi Transform:</h3>
+          <ul>
+            <li><code>translate()</code> - Memindahkan elemen
+              <pre><code>transform: translate(50px, 100px);</code></pre>
+            </li>
+            <li><code>rotate()</code> - Memutar elemen
+              <pre><code>transform: rotate(45deg);</code></pre>
+            </li>
+            <li><code>scale()</code> - Mengubah ukuran elemen
+              <pre><code>transform: scale(1.5);</code></pre>
+            </li>
+            <li><code>skew()</code> - Miringkan elemen
+              <pre><code>transform: skew(30deg, 20deg);</code></pre>
+            </li>
+            <li><code>matrix()</code> - Gabungan semua transform</li>
+          </ul>
+          
+          <h3>Transform Origin:</h3>
+          <p>Mengatur titik pusat transformasi:</p>
+          <pre><code>transform-origin: 50% 50%; /* Default */
+transform-origin: left top;
+transform-origin: 20px 50px;</code></pre>
+        </div>
+      </div>
+
+      <div id="variables" class="content-section">
+        <h2><i class="fas fa-at"></i> CSS Variables</h2>
+        <div class="materi">
+          <p>CSS Variables (Custom Properties) memungkinkan penyimpanan nilai yang dapat digunakan kembali.</p>
+          
+          <h3>Deklarasi Variable:</h3>
+          <pre><code>:root {
+  --primary-color: #4285f4;
+  --padding: 15px;
+  --max-width: 1200px;
+}</code></pre>
+          
+          <h3>Penggunaan Variable:</h3>
+          <pre><code>.header {
+  background-color: var(--primary-color);
+  padding: var(--padding);
+  max-width: var(--max-width);
+}</code></pre>
+          
+          <h3>Keuntungan:</h3>
+          <ul>
+            <li>Mudah dikelola dan diubah</li>
+            <li>Nilai dapat diubah dengan JavaScript</li>
+            <li>Scope global atau lokal</li>
+            <li>Fallback value</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="preprocessor" class="content-section">
+        <h2><i class="fas fa-cog"></i> Preprocessor (Sass/Less)</h2>
+        <div class="materi">
+          <p>CSS preprocessor adalah bahasa scripting yang memperluas CSS dan dikompilasi ke CSS.</p>
+          
+          <h3>Fitur Sass:</h3>
+          <ul>
+            <li><strong>Variables</strong>:
+              <pre><code>$primary-color: #333;
+body { color: $primary-color; }</code></pre>
+            </li>
+            <li><strong>Nesting</strong>:
+              <pre><code>nav {
+  ul { margin: 0; }
+  a { color: blue; }
+}</code></pre>
+            </li>
+            <li><strong>Mixins</strong>:
+              <pre><code>@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+.box { @include border-radius(10px); }</code></pre>
+            </li>
+            <li><strong>Inheritance</strong>:
+              <pre><code>%message-shared {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.success { @extend %message-shared; }</code></pre>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="frameworks" class="content-section">
+        <h2><i class="fas fa-cubes"></i> CSS Frameworks</h2>
+        <div class="materi">
+          <p>Framework CSS menyediakan kode siap pakai untuk mempercepat pengembangan.</p>
+          
+          <h3>Popular CSS Frameworks:</h3>
+          <ul>
+            <li><strong>Bootstrap</strong> - Framework paling populer dengan sistem grid dan komponen siap pakai</li>
+            <li><strong>Tailwind CSS</strong> - Utility-first CSS framework</li>
+            <li><strong>Foundation</strong> - Framework responsif yang powerful</li>
+            <li><strong>Bulma</strong> - Framework berbasis Flexbox</li>
+            <li><strong>Materialize</strong> - Berdasarkan Material Design Google</li>
+          </ul>
+          
+          <h3>Contoh Penggunaan Bootstrap:</h3>
+          <pre><code>&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+
+&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-md-4"&gt;Kolom 1&lt;/div&gt;
+    &lt;div class="col-md-4"&gt;Kolom 2&lt;/div&gt;
+    &lt;div class="col-md-4"&gt;Kolom 3&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+
+      <div id="best-practices" class="content-section">
+        <h2><i class="fas fa-star"></i> Best Practices</h2>
+        <div class="materi">
+          <p>Berikut adalah praktik terbaik dalam menulis CSS:</p>
+          
+          <h3>Organisasi Kode:</h3>
+          <ul>
+            <li>Gunakan metodologi seperti BEM (Block, Element, Modifier)</li>
+            <li>Pisahkan CSS ke beberapa file berdasarkan komponen</li>
+            <li>Gunakan komentar untuk membagi bagian</li>
+          </ul>
+          
+          <h3>Performance:</h3>
+          <ul>
+            <li>Minimalkan penggunaan selector kompleks</li>
+            <li>Hindari !important</li>
+            <li>Gunakan shorthand properties</li>
+            <li>Minify CSS untuk produksi</li>
+          </ul>
+          
+          <h3>Maintainability:</h3>
+          <ul>
+            <li>Gunakan naming convention yang konsisten</li>
+            <li>Hindari inline style</li>
+            <li>Gunakan CSS variables untuk nilai yang sering digunakan</li>
+          </ul>
+          
+          <h3>Contoh BEM:</h3>
+          <pre><code>/* Block */
+.menu { ... }
+
+/* Element */
+.menu__item { ... }
+
+/* Modifier */
+.menu__item--active { ... }</code></pre>
+        </div>
+      </div>
+    </div>
+  </main>
+
+    <script src=" {{ url_for('static', filename='js/sidebar.js')}}"></script>
+</body>
+</html>

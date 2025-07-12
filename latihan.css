@@ -1,0 +1,267 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --primary-color: #6e45e2;
+  --secondary-color: #88d3ce;
+  --accent-color: #ff7e5f;
+  --text-color: #ffffff;
+  --dark-bg: #121212;
+  --darker-bg: #0a0a0a;
+  --sidebar-bg: rgba(30, 30, 30, 0.95);
+  --card-bg: rgba(40, 40, 40, 0.7);
+}
+
+body {
+  background: linear-gradient(135deg, var(--darker-bg), var(--dark-bg));
+  color: var(--text-color);
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 30%, rgba(110, 69, 226, 0.15), transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.navbar {
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 5%;
+  background-color: rgba(18, 18, 18, 0.8);  
+  backdrop-filter: blur(10px);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.navbar .text-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nav-links {
+  display:flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+
+.nav-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.nav-links a::after {
+ content:'';
+  position: absolute;
+  bottom:0;
+  left:0;
+  width:0;
+  height: 2px;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links.active {
+  left:0;
+}
+
+.hamburger-bars {
+  display:none;
+}
+
+.hamburger-bars button {
+ background:transparent;
+ color: var(--text-color);
+ font-size: 1.5rem;
+ cursor: pointer;
+ border: none;
+}
+
+
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 5%;
+  }
+
+  .nav-links {
+    position:fixed;
+    top:70px;
+    left:-100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: var(--darker-bg);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    transition:all 0.5s ease;
+  }
+
+  .nav-links.active {
+    left: 0;
+    display:flex;
+  }
+
+  .hamburger-bars {
+    display: block;
+  }
+
+  .container h1 {
+    font-size:2.5rem;
+  }
+
+  .box-product {
+    padding: 3rem 5%;
+  }
+
+  .start-game {
+    margin: 0 5%;
+    padding: 3rem 1rem;
+  }
+}
+
+.hero h1 {
+  margin-top:5rem;
+  text-align:center;
+  font-size:3rem;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero,
+.lower-text {
+  text-align:center;
+}
+
+.challenge-list {
+
+}
+
+.challenge-section-title {
+  font-size: 1.8rem;
+  margin: 3rem 0 1.5rem;
+  text-align: center;
+  color: var(--text-color);
+  padding-bottom: 0.5rem;
+}
+
+/* Grid khusus untuk kotak tantangan */
+.challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0 2rem;
+}
+
+
+.challenge-card {
+    background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  scroll-behavior: smooth;
+}
+
+.challenge-card:hover {
+  transform:translateY(-10px);
+  box-shadow:0 15px 30px rgba(0, 0, 0, 0.3);
+  border-color:rgba(110, 69 , 226 ,0.3);
+}
+
+.lesson-text  {
+line-height:1.6;
+margin-bottom:1rem;
+padding:0.5rem 0;
+}
+
+.lesson-text strong {
+  display:block;
+}
+
+
+/* Add specific styles for each level or remove the empty block if not needed */
+.level-easy {
+ display: inline-block;
+  padding: 0.8rem 1.8rem;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(110, 69, 226, 0.4);
+}
+
+.level-medium {
+ display: inline-block;
+  padding: 0.8rem 1.8rem;
+  background: linear-gradient(to right, var(--secondary-color), var(--dark-bg));
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(110, 69, 226, 0.4);
+}
+
+.level-hard {
+ display: inline-block;
+  padding: 0.8rem 1.8rem;
+  background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(110, 69, 226, 0.4);
+}
+
+.level-easy:hover,
+.level-medium:hover,
+.level-hard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(110, 69, 226, 0.6);
+  transition: all 0.3s ease;
+}
+
+

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Materi React">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+  <title>Tekno Dev - ReactJs</title>
+</head>
+<body>
+  <header class="navbar">
+    <button class="openBtn" onclick="openNav()">
+      <i class="fas fa-bars"></i> Menu
+    </button>
+    <h1 class="title">React Learning</h1>
+  </header>
+
+  <div class="sidebar" id="sidebar">
+    <button class="closeBtn" onclick="closeNav()">
+      <i class="fas fa-times"></i> Close
+    </button>
+    <div class="sidebar-links">
+      <a href="#" data-content="pengenalan"><i class="fas fa-play"></i> Pengenalan React</a>
+      <a href="#" data-content="setup"><i class="fas fa-cog"></i> Setup Project</a>
+      <a href="#" data-content="jsx"><i class="fab fa-react"></i> JSX</a>
+      <a href="#" data-content="komponen"><i class="fas fa-cube"></i> Komponen</a>
+      <a href="#" data-content="props"><i class="fas fa-exchange-alt"></i> Props</a>
+      <a href="#" data-content="state"><i class="fas fa-database"></i> State</a>
+      <a href="#" data-content="lifecycle"><i class="fas fa-recycle"></i> Lifecycle</a>
+      <a href="#" data-content="hooks"><i class="fa-brands fa-ubuntu"></i> Hooks</a>
+      <a href="#" data-content="event"><i class="fas fa-mouse-pointer"></i> Event Handling</a>
+      <a href="#" data-content="form"><i class="fas fa-edit"></i> Form Handling</a>
+      <a href="#" data-content="routing"><i class="fas fa-route"></i> Routing</a>
+      <a href="#" data-content="context"><i class="fas fa-share-alt"></i> Context API</a>
+      <a href="#" data-content="redux"><i class="fas fa-store"></i> Redux</a>
+      <a href="#" data-content="testing"><i class="fas fa-vial"></i> Testing</a>
+    </div>
+  </div>
+
+  <main class="content">
+    <div class="container">
+      <!-- Konten default saat pertama kali load -->
+      <div id="default-content">
+        <h2>Selamat Belajar React</h2>
+        <p>Pilih materi dari sidebar untuk memulai pembelajaran.</p>
+      </div>
+
+      <!-- Konten untuk masing-masing materi -->
+      <div id="pengenalan" class="content-section">
+        <h2><i class="fas fa-play"></i> Pengenalan React</h2>
+        <div class="materi">
+          <p>React adalah library JavaScript untuk membangun antarmuka pengguna (UI) yang efisien dan fleksibel.</p>
+          
+          <h3>Kelebihan React:</h3>
+          <ul>
+            <li><strong>Komponen</strong>: UI dibangun dari komponen yang dapat digunakan kembali</li>
+            <li><strong>Virtual DOM</strong>: Meningkatkan performa aplikasi</li>
+            <li><strong>Uni-directional Data Flow</strong>: Aliran data yang mudah dipahami</li>
+            <li><strong>Ekosistem Kaya</strong>: Banyak library pendukung</li>
+          </ul>
+          
+          <h3>Kapan Menggunakan React?</h3>
+          <ul>
+            <li>Aplikasi web yang kompleks dengan banyak interaksi</li>
+            <li>Aplikasi yang membutuhkan pembaruan UI secara real-time</li>
+            <li>Proyek yang membutuhkan komponen reusable</li>
+          </ul>
+          
+          <div class="code-example">
+            <h3>Contoh Kode React Sederhana:</h3>
+            <pre><code>function Hello() {
+  return &lt;h1&gt;Hello, React!&lt;/h1&gt;;
+}
+
+ReactDOM.render(
+  &lt;Hello /&gt;,
+  document.getElementById('root')
+);</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="setup" class="content-section">
+        <h2><i class="fas fa-cog"></i> Setup Project React</h2>
+        <div class="materi">
+          <p>Ada beberapa cara untuk memulai proyek React:</p>
+          
+          <h3>1. Create React App (CRA)</h3>
+          <p>Cara termudah untuk memulai dengan React:</p>
+          <pre><code>npx create-react-app nama-aplikasi
+cd nama-aplikasi
+npm start</code></pre>
+          
+          <h3>2. Vite</h3>
+          <p>Alternatif yang lebih cepat dari CRA:</p>
+          <pre><code>npm create vite@latest nama-aplikasi --template react
+cd nama-aplikasi
+npm install
+npm run dev</code></pre>
+          
+          <h3>Struktur Folder Dasar:</h3>
+          <pre><code>my-app/
+├── node_modules/
+├── public/
+│   ├── index.html
+│   └── ...
+├── src/
+│   ├── App.js
+│   ├── index.js
+│   └── ...
+├── package.json
+└── ...</code></pre>
+        </div>
+      </div>
+
+      <div id="jsx" class="content-section">
+        <h2><i class="fab fa-react"></i> JSX</h2>
+        <div class="materi">
+          <p>JSX adalah sintaks extension untuk JavaScript yang memungkinkan penulisan HTML dalam kode JavaScript.</p>
+          
+          <h3>Karakteristik JSX:</h3>
+          <ul>
+            <li>Bukan string maupun HTML</li>
+            <li>Produk dari React.createElement()</li>
+            <li>Memiliki aturan khusus:
+              <ul>
+                <li>Nama atribut camelCase (className bukan class)</li>
+                <li>Harus memiliki satu root element</li>
+                <li>Tag harus ditutup dengan benar (&lt;img /&gt;)</li>
+              </ul>
+            </li>
+          </ul>
+          
+          <h3>Contoh JSX:</h3>
+          <pre><code>const element = (
+  &lt;div className="greeting"&gt;
+    &lt;h1&gt;Hello, world!&lt;/h1&gt;
+    &lt;p&gt;Welcome to React&lt;/p&gt;
+  &lt;/div&gt;
+);</code></pre>
+          
+          <h3>Embedding Expressions:</h3>
+          <pre><code>const name = 'John';
+const element = &lt;h1&gt;Hello, {name}&lt;/h1&gt;;
+
+// Ekspresi JavaScript dalam JSX
+const user = { firstName: 'John', lastName: 'Doe' };
+const element = (
+  &lt;h1&gt;
+    Hello, {user.firstName} {user.lastName}
+  &lt;/h1&gt;
+);</code></pre>
+        </div>
+      </div>
+
+      <div id="komponen" class="content-section">
+        <h2><i class="fas fa-cube"></i> Komponen React</h2>
+        <div class="materi">
+          <p>Komponen adalah blok bangunan dasar dari aplikasi React.</p>
+          
+          <h3>Jenis Komponen:</h3>
+          <ul>
+            <li><strong>Functional Components</strong> (modern)
+              <pre><code>function Welcome() {
+  return &lt;h1&gt;Hello, React!&lt;/h1&gt;;
+}</code></pre>
+            </li>
+            <li><strong>Class Components</strong> (legacy)
+              <pre><code>class Welcome extends React.Component {
+  render() {
+    return &lt;h1&gt;Hello, React!&lt;/h1&gt;;
+  }
+}</code></pre>
+            </li>
+          </ul>
+          
+          <h3>Komposisi Komponen:</h3>
+          <pre><code>function App() {
+  return (
+    &lt;div&gt;
+      &lt;Welcome /&gt;
+      &lt;Welcome /&gt;
+      &lt;Welcome /&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+          
+          <h3>Export/Import Komponen:</h3>
+          <pre><code>// Welcome.js
+function Welcome() {
+  return &lt;h1&gt;Hello!&lt;/h1&gt;;
+}
+export default Welcome;
+
+// App.js
+import Welcome from './Welcome';</code></pre>
+        </div>
+      </div>
+
+      <div id="props" class="content-section">
+        <h2><i class="fas fa-exchange-alt"></i> Props</h2>
+        <div class="materi">
+          <p>Props (properties) adalah cara untuk mengirim data dari komponen parent ke child.</p>
+          
+          <h3>Menggunakan Props:</h3>
+          <pre><code>function Welcome(props) {
+  return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+}
+
+// Penggunaan
+&lt;Welcome name="Sara" /&gt;
+&lt;Welcome name="John" /&gt;</code></pre>
+          
+          <h3>Children Props:</h3>
+          <pre><code>function Card(props) {
+  return (
+    &lt;div className="card"&gt;
+      {props.children}
+    &lt;/div&gt;
+  );
+}
+
+// Penggunaan
+&lt;Card&gt;
+  &lt;h2&gt;Judul&lt;/h2&gt;
+  &lt;p&gt;Isi konten&lt;/p&gt;
+&lt;/Card&gt;</code></pre>
+          
+          <h3>Type Checking dengan PropTypes:</h3>
+          <pre><code>import PropTypes from 'prop-types';
+
+function Welcome(props) {
+  return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+}
+
+Welcome.propTypes = {
+  name: PropTypes.string.isRequired
+};</code></pre>
+        </div>
+      </div>
+
+      <div id="state" class="content-section">
+        <h2><i class="fas fa-database"></i> State</h2>
+        <div class="materi">
+          <p>State adalah data yang dapat berubah selama komponen hidup dan memicu re-render ketika diubah.</p>
+          
+          <h3>State dalam Class Component:</h3>
+          <pre><code>class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 };
+  }
+
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;p&gt;Count: {this.state.count}&lt;/p&gt;
+        &lt;button onClick={() =&gt; 
+          this.setState({ count: this.state.count + 1 })
+        }&gt;
+          Increment
+        &lt;/button&gt;
+      &lt;/div&gt;
+    );
+  }
+}</code></pre>
+          
+          <h3>State dalam Functional Component (useState Hook):</h3>
+          <pre><code>import { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Count: {count}&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+        Increment
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+          
+          <h3>Aturan State:</h3>
+          <ul>
+            <li>Jangan modifikasi state secara langsung</li>
+            <li>State updates mungkin asynchronous</li>
+            <li>State updates digabungkan</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="lifecycle" class="content-section">
+        <h2><i class="fas fa-recycle"></i> Lifecycle</h2>
+        <div class="materi">
+          <p>Lifecycle methods memungkinkan eksekusi kode pada tahap tertentu dalam siklus hidup komponen.</p>
+          
+          <h3>Lifecycle Class Component:</h3>
+          <ul>
+            <li><strong>Mounting</strong>:
+              <ul>
+                <li>constructor()</li>
+                <li>render()</li>
+                <li>componentDidMount()</li>
+              </ul>
+            </li>
+            <li><strong>Updating</strong>:
+              <ul>
+                <li>shouldComponentUpdate()</li>
+                <li>render()</li>
+                <li>componentDidUpdate()</li>
+              </ul>
+            </li>
+            <li><strong>Unmounting</strong>:
+              <ul>
+                <li>componentWillUnmount()</li>
+              </ul>
+            </li>
+          </ul>
+          
+          <h3>Lifecycle Functional Component (useEffect Hook):</h3>
+          <pre><code>import { useEffect } from 'react';
+
+function Example() {
+  useEffect(() => {
+    // Kode untuk mounting/updating
+    console.log('Component mounted/updated');
+    
+    return () => {
+      // Cleanup untuk unmounting
+      console.log('Component will unmount');
+    };
+  }, []); // Dependency array
+}</code></pre>
+        </div>
+      </div>
+
+      <div id="hooks" class="content-section">
+        <h2><i class="fa-brands fa-ubuntu"></i> Hooks</h2>
+        <div class="materi">
+          <p>Hooks memungkinkan penggunaan state dan fitur React lainnya dalam functional components.</p>
+          
+          <h3>Hooks Dasar:</h3>
+          <ul>
+            <li><strong>useState</strong> - Manajemen state
+              <pre><code>const [state, setState] = useState(initialValue);</code></pre>
+            </li>
+            <li><strong>useEffect</strong> - Side effects
+              <pre><code>useEffect(() => { /* effect */ }, [deps]);</code></pre>
+            </li>
+            <li><strong>useContext</strong> - Akses context</li>
+            <li><strong>useReducer</strong> - State management kompleks</li>
+          </ul>
+          
+          <h3>Hooks Tambahan:</h3>
+          <ul>
+            <li><strong>useCallback</strong> - Memoize functions</li>
+            <li><strong>useMemo</strong> - Memoize values</li>
+            <li><strong>useRef</strong> - Referensi DOM/mutable values</li>
+            <li><strong>useLayoutEffect</strong> - Efek sebelum paint</li>
+          </ul>
+          
+          <h3>Custom Hooks:</h3>
+          <pre><code>function useCounter(initialValue) {
+  const [count, setCount] = useState(initialValue);
+  
+  const increment = () => setCount(c => c + 1);
+  const decrement = () => setCount(c => c - 1);
+  
+  return { count, increment, decrement };
+}
+
+// Penggunaan
+function App() {
+  const { count, increment } = useCounter(0);
+  return &lt;button onClick={increment}&gt;{count}&lt;/button&gt;;
+}</code></pre>
+        </div>
+      </div>
+
+      <div id="event" class="content-section">
+        <h2><i class="fas fa-mouse-pointer"></i> Event Handling</h2>
+        <div class="materi">
+          <p>Event handling di React mirip dengan DOM, tetapi dengan beberapa perbedaan sintaks.</p>
+          
+          <h3>Perbedaan Utama:</h3>
+          <ul>
+            <li>Nama event camelCase (onClick bukan onclick)</li>
+            <li>Handler berupa function bukan string</li>
+            <li>Harus call preventDefault() secara eksplisit</li>
+          </ul>
+          
+          <h3>Contoh Event Handling:</h3>
+          <pre><code>function Button() {
+  function handleClick(e) {
+    e.preventDefault();
+    console.log('Button clicked');
+  }
+
+  return (
+    &lt;button onClick={handleClick}&gt;
+      Click me
+    &lt;/button&gt;
+  );
+}</code></pre>
+          
+          <h3>Event Handling dengan Parameter:</h3>
+          <pre><code>function List() {
+  const items = ['Item 1', 'Item 2', 'Item 3'];
+  
+  return (
+    &lt;ul&gt;
+      {items.map((item, index) => (
+        &lt;li key={index} onClick={() => handleClick(item)}&gt;
+          {item}
+        &lt;/li&gt;
+      ))}
+    &lt;/ul&gt;
+  );
+}</code></pre>
+        </div>
+      </div>
+
+      <div id="form" class="content-section">
+        <h2><i class="fas fa-edit"></i> Form Handling</h2>
+        <div class="materi">
+          <p>Form di React dikontrol melalui state (controlled components).</p>
+          
+          <h3>Controlled Components:</h3>
+          <pre><code>function Form() {
+  const [name, setName] = useState('');
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert('Name: ' + name);
+  };
+
+  return (
+    &lt;form onSubmit={handleSubmit}&gt;
+      &lt;label&gt;
+        Name:
+        &lt;input 
+          type="text" 
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        /&gt;
+      &lt;/label&gt;
+      &lt;button type="submit"&gt;Submit&lt;/button&gt;
+    &lt;/form&gt;
+  );
+}</code></pre>
+          
+          <h3>Form Kompleks:</h3>
+          <pre><code>function Form() {
+  const [formData, setFormData] = useState({
+    username: '',
+    password: '',
+    remember: false
+  });
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+  // render form...
+}</code></pre>
+        </div>
+      </div>
+
+      <div id="routing" class="content-section">
+        <h2><i class="fas fa-route"></i> Routing</h2>
+        <div class="materi">
+          <p>React Router adalah library standar untuk routing di aplikasi React.</p>
+          
+          <h3>Setup Dasar:</h3>
+          <pre><code>npm install react-router-dom</code></pre>
+          
+          <h3>Contoh Implementasi:</h3>
+          <pre><code>import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+
+function App() {
+  return (
+    &lt;BrowserRouter&gt;
+      &lt;nav&gt;
+        &lt;Link to="/"&gt;Home&lt;/Link&gt;
+        &lt;Link to="/about"&gt;About&lt;/Link&gt;
+      &lt;/nav&gt;
+      
+      &lt;Routes&gt;
+        &lt;Route path="/" element={&lt;Home /&gt;} /&gt;
+        &lt;Route path="/about" element={&lt;About /&gt;} /&gt;
+      &lt;/Routes&gt;
+    &lt;/BrowserRouter&gt;
+  );
+}</code></pre>
+          
+          <h3>Dynamic Routing:</h3>
+          <pre><code>&lt;Route path="/users/:id" element={&lt;UserProfile /&gt;} /&gt;
+
+// Di komponen UserProfile
+import { useParams } from 'react-router-dom';
+
+function UserProfile() {
+  const { id } = useParams();
+  return &lt;div&gt;User ID: {id}&lt;/div&gt;;
+}</code></pre>
+        </div>
+      </div>
+
+      <div id="context" class="content-section">
+        <h2><i class="fas fa-share-alt"></i> Context API</h2>
+        <div class="materi">
+          <p>Context menyediakan cara untuk membagikan data melalui komponen tree tanpa harus pass props secara manual.</p>
+          
+          <h3>Membuat Context:</h3>
+          <pre><code>import { createContext, useContext } from 'react';
+
+const ThemeContext = createContext('light');
+
+function App() {
+  return (
+    &lt;ThemeContext.Provider value="dark"&gt;
+      &lt;Toolbar /&gt;
+    &lt;/ThemeContext.Provider&gt;
+  );
+}
+
+function Toolbar() {
+  const theme = useContext(ThemeContext);
+  return &lt;div&gt;Current theme: {theme}&lt;/div&gt;;
+}</code></pre>
+          
+          <h3>Context dengan State:</h3>
+          <pre><code>function App() {
+  const [theme, setTheme] = useState('light');
+  
+  return (
+    &lt;ThemeContext.Provider value={{ theme, setTheme }}&gt;
+      &lt;Toolbar /&gt;
+    &lt;/ThemeContext.Provider&gt;
+  );
+}</code></pre>
+        </div>
+      </div>
+
+      <div id="redux" class="content-section">
+        <h2><i class="fas fa-store"></i> Redux</h2>
+        <div class="materi">
+          <p>Redux adalah state management library untuk aplikasi JavaScript yang kompleks.</p>
+          
+          <h3>Konsep Dasar Redux:</h3>
+          <ul>
+            <li><strong>Store</strong>: Tempat penyimpanan state global</li>
+            <li><strong>Actions</strong>: Objek yang mendeskripsikan perubahan</li>
+            <li><strong>Reducers</strong>: Fungsi yang menentukan perubahan state</li>
+          </ul>
+          
+          <h3>Setup Redux dengan React:</h3>
+          <pre><code>npm install @reduxjs/toolkit react-redux</code></pre>
+          
+          <h3>Contoh Implementasi:</h3>
+          <pre><code>// store.js
+import { configureStore } from '@reduxjs/toolkit';
+
+export default configureStore({
+  reducer: {
+    counter: counterReducer
+  }
+});
+
+// App.js
+import { Provider } from 'react-redux';
+import store from './store';
+
+function App() {
+  return (
+    &lt;Provider store={store}&gt;
+      &lt;Counter /&gt;
+    &lt;/Provider&gt;
+  );
+}</code></pre>
+        </div>
+      </div>
+
+      <div id="testing" class="content-section">
+        <h2><i class="fas fa-vial"></i> Testing</h2>
+        <div class="materi">
+          <p>Testing adalah bagian penting dalam pengembangan aplikasi React.</p>
+          
+          <h3>Tools Testing:</h3>
+          <ul>
+            <li><strong>Jest</strong>: Testing framework (sudah termasuk di CRA)</li>
+            <li><strong>React Testing Library</strong>: Untuk testing komponen React</li>
+            <li><strong>Cypress</strong>: End-to-end testing</li>
+          </ul>
+          
+          <h3>Contoh Testing Komponen:</h3>
+          <pre><code>import { render, screen } from '@testing-library/react';
+import Button from './Button';
+
+test('renders button with text', () => {
+  render(&lt;Button&gt;Click me&lt;/Button&gt;);
+  const buttonElement = screen.getByText(/click me/i);
+  expect(buttonElement).toBeInTheDocument();
+});</code></pre>
+          
+          <h3>Testing Custom Hook:</h3>
+          <pre><code>import { renderHook, act } from '@testing-library/react-hooks';
+import useCounter from './useCounter';
+
+test('should increment counter', () => {
+  const { result } = renderHook(() => useCounter());
+  
+  act(() => {
+    result.current.increment();
+  });
+  
+  expect(result.current.count).toBe(1);
+});</code></pre>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+ <script src=" {{ url_for('static', filename='js/sidebar.js')}}"></script>
+</html>

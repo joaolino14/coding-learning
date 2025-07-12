@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Materi JS">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href=" {{ url_for('static', filename='css/sidebar.css') }}">
+  <title>TeknoDev - JavaScript</title>
+</head>
+<body>
+  <header class="navbar">
+    <button class="openBtn" onclick="openNav()">
+      <i class="fas fa-bars"></i> Menu
+    </button>
+    <h1 class="title">JavaScript Learning</h1>
+  </header>
+
+  <div class="sidebar" id="sidebar">
+    <button class="closeBtn" onclick="closeNav()">
+      <i class="fas fa-times"></i> Close
+    </button>
+    <div class="sidebar-links">
+      <a href="#" data-content="pengenalan"><i class="fas fa-play"></i> Pengenalan JavaScript</a>
+      <a href="#" data-content="syntax"><i class="fas fa-code"></i> Syntax Dasar</a>
+      <a href="#" data-content="variabel"><i class="fas fa-tag"></i> Variabel & Tipe Data</a>
+      <a href="#" data-content="operator"><i class="fas fa-calculator"></i> Operator</a>
+      <a href="#" data-content="kondisi"><i class="fas fa-code-branch"></i> Kondisi & Percabangan</a>
+      <a href="#" data-content="perulangan"><i class="fas fa-redo"></i> Perulangan</a>
+      <a href="#" data-content="fungsi"><i class="fas fa-cube"></i> Fungsi</a>
+      <a href="#" data-content="array"><i class="fas fa-list-ol"></i> Array</a>
+      <a href="#" data-content="object"><i class="fas fa-cube"></i> Object</a>
+      <a href="#" data-content="dom"><i class="fas fa-window-maximize"></i> DOM Manipulation</a>
+      <a href="#" data-content="event"><i class="fas fa-mouse-pointer"></i> Event Handling</a>
+      <a href="#" data-content="es6"><i class="fab fa-js"></i> ES6+ Features</a>
+      <a href="#" data-content="async"><i class="fas fa-clock"></i> Async Programming</a>
+      <a href="#" data-content="error"><i class="fas fa-bug"></i> Error Handling</a>
+    </div>
+  </div>
+
+  <main class="content">
+    <div class="container">
+      <!-- Konten default saat pertama kali load -->
+      <div id="default-content">
+        <h2>Selamat Belajar JavaScript</h2>
+        <p>Pilih materi dari sidebar untuk memulai pembelajaran.</p>
+      </div>
+
+      <!-- Konten untuk masing-masing materi -->
+      <div id="pengenalan" class="content-section">
+        <h2><i class="fas fa-play"></i> Pengenalan JavaScript</h2>
+        <div class="materi">
+          <p>JavaScript adalah bahasa pemrograman tingkat tinggi yang digunakan untuk membuat halaman web interaktif.</p>
+          
+          <h3>Sejarah JavaScript:</h3>
+          <ul>
+            <li>Dibuat oleh Brendan Eich pada tahun 1995</li>
+            <li>Versi pertama dibuat dalam 10 hari</li>
+            <li>Nama awal: Mocha → LiveScript → JavaScript</li>
+            <li>ES6 (2015) membawa banyak fitur modern</li>
+          </ul>
+          
+          <h3>Fungsi JavaScript:</h3>
+          <ul>
+            <li>Membuat halaman web interaktif</li>
+            <li>Memvalidasi form</li>
+            <li>Membuat animasi</li>
+            <li>Berinteraksi dengan API</li>
+            <li>Membangun aplikasi web kompleks</li>
+          </ul>
+          
+          <div class="code-example">
+            <h3>Contoh Kode JavaScript Sederhana:</h3>
+            <pre><code>// Menampilkan alert
+alert('Hello World!');
+
+// Mengubah konten HTML
+document.getElementById('demo').innerHTML = 'Halo JavaScript!';</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="syntax" class="content-section">
+        <h2><i class="fas fa-code"></i> Syntax Dasar JavaScript</h2>
+        <div class="materi">
+          <p>JavaScript memiliki aturan penulisan (syntax) yang harus diikuti.</p>
+          
+          <h3>Struktur Dasar:</h3>
+          <ul>
+            <li><strong>Case Sensitive</strong>: JavaScript membedakan huruf besar dan kecil</li>
+            <li><strong>Statement</strong>: Diakhiri dengan titik koma (;)</li>
+            <li><strong>Komentar</strong>:
+              <pre><code>// Komentar satu baris
+/* Komentar 
+   multi baris */</code></pre>
+            </li>
+          </ul>
+          
+          <h3>Contoh Syntax:</h3>
+          <pre><code>// Deklarasi variabel
+let nama = 'Budi';
+
+// Fungsi
+function sapa() {
+  return 'Halo ' + nama;
+}
+
+// Pemanggilan fungsi
+console.log(sapa());</code></pre>
+          
+          <h3>Cara Menambahkan JavaScript ke HTML:</h3>
+          <ul>
+            <li><strong>Internal</strong>: Dalam tag &lt;script&gt;
+              <pre><code>&lt;script&gt;
+  alert('Hello!');
+&lt;/script&gt;</code></pre>
+            </li>
+            <li><strong>External</strong>: File terpisah (.js) yang dihubungkan
+              <pre><code>&lt;script src="script.js"&gt;&lt;/script&gt;</code></pre>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="variabel" class="content-section">
+        <h2><i class="fas fa-tag"></i> Variabel & Tipe Data</h2>
+        <div class="materi">
+          <p>Variabel digunakan untuk menyimpan data dalam program.</p>
+          
+          <h3>Deklarasi Variabel:</h3>
+          <ul>
+            <li><code>var</code> - Scope function (legacy)</li>
+            <li><code>let</code> - Scope block (bisa diubah)</li>
+            <li><code>const</code> - Scope block (konstan)</li>
+          </ul>
+          
+          <h3>Contoh:</h3>
+          <pre><code>var nama = 'Budi'; // Legacy
+let umur = 20;     // Bisa diubah
+const PI = 3.14;   // Konstan</code></pre>
+          
+          <h3>Tipe Data:</h3>
+          <ul>
+            <li><strong>Primitif</strong>:
+              <ul>
+                <li>String - Teks ('Hello')</li>
+                <li>Number - Angka (123, 3.14)</li>
+                <li>Boolean - true/false</li>
+                <li>null - Nilai kosong</li>
+                <li>undefined - Belum didefinisikan</li>
+                <li>Symbol - Unik (ES6)</li>
+              </ul>
+            </li>
+            <li><strong>Non-Primitif</strong>:
+              <ul>
+                <li>Object - {nama: 'Budi'}</li>
+                <li>Array - [1, 2, 3]</li>
+                <li>Function - function() {}</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="operator" class="content-section">
+        <h2><i class="fas fa-calculator"></i> Operator</h2>
+        <div class="materi">
+          <p>Operator digunakan untuk melakukan operasi pada variabel dan nilai.</p>
+          
+          <h3>Jenis Operator:</h3>
+          <ul>
+            <li><strong>Aritmatika</strong>: +, -, *, /, %, **
+              <pre><code>let hasil = 10 + 5; // 15</code></pre>
+            </li>
+            <li><strong>Penugasan</strong>: =, +=, -=, *=, /=
+              <pre><code>let x = 10;
+x += 5; // x = x + 5</code></pre>
+            </li>
+            <li><strong>Perbandingan</strong>: ==, ===, !=, !==, >, <
+              <pre><code>5 == '5'  // true (nilai sama)
+5 === '5' // false (tipe berbeda)</code></pre>
+            </li>
+            <li><strong>Logika</strong>: &&, ||, !
+              <pre><code>true && false // false
+true || false // true
+!true         // false</code></pre>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="kondisi" class="content-section">
+        <h2><i class="fas fa-code-branch"></i> Kondisi & Percabangan</h2>
+        <div class="materi">
+          <p>Percabangan digunakan untuk mengeksekusi kode berbeda berdasarkan kondisi.</p>
+          
+          <h3>If-Else:</h3>
+          <pre><code>let nilai = 85;
+
+if (nilai >= 90) {
+  console.log('A');
+} else if (nilai >= 80) {
+  console.log('B');
+} else {
+  console.log('C');
+}</code></pre>
+          
+          <h3>Switch:</h3>
+          <pre><code>let hari = 'Senin';
+
+switch(hari) {
+  case 'Senin':
+    console.log('Hari kerja');
+    break;
+  case 'Sabtu':
+    console.log('Weekend');
+    break;
+  default:
+    console.log('Hari lainnya');
+}</code></pre>
+          
+          <h3>Ternary Operator:</h3>
+          <pre><code>let usia = 20;
+let status = (usia >= 18) ? 'Dewasa' : 'Anak-anak';</code></pre>
+        </div>
+      </div>
+
+      <div id="perulangan" class="content-section">
+        <h2><i class="fas fa-redo"></i> Perulangan</h2>
+        <div class="materi">
+          <p>Perulangan digunakan untuk mengeksekusi blok kode berulang kali.</p>
+          
+          <h3>For Loop:</h3>
+          <pre><code>for (let i = 0; i < 5; i++) {
+  console.log(i); // 0, 1, 2, 3, 4
+}</code></pre>
+          
+          <h3>While Loop:</h3>
+          <pre><code>let i = 0;
+while (i < 5) {
+  console.log(i);
+  i++;
+}</code></pre>
+          
+          <h3>Do-While Loop:</h3>
+          <pre><code>let i = 0;
+do {
+  console.log(i);
+  i++;
+} while (i < 5);</code></pre>
+          
+          <h3>For-Of (Array):</h3>
+          <pre><code>let fruits = ['Apple', 'Banana', 'Orange'];
+for (let fruit of fruits) {
+  console.log(fruit);
+}</code></pre>
+        </div>
+      </div>
+
+      <div id="fungsi" class="content-section">
+        <h2><i class="fas fa-cube"></i> Fungsi</h2>
+        <div class="materi">
+          <p>Fungsi adalah blok kode yang dapat dipanggil berulang kali.</p>
+          
+          <h3>Function Declaration:</h3>
+          <pre><code>function sapa(nama) {
+  return 'Halo ' + nama;
+}
+console.log(sapa('Budi')); // Halo Budi</code></pre>
+          
+          <h3>Function Expression:</h3>
+          <pre><code>const sapa = function(nama) {
+  return 'Halo ' + nama;
+};</code></pre>
+          
+          <h3>Arrow Function (ES6):</h3>
+          <pre><code>const sapa = (nama) => {
+  return 'Halo ' + nama;
+};
+
+// Atau lebih singkat:
+const sapa = nama => 'Halo ' + nama;</code></pre>
+          
+          <h3>Parameter Default (ES6):</h3>
+          <pre><code>function sapa(nama = 'Tamu') {
+  return 'Halo ' + nama;
+}</code></pre>
+        </div>
+      </div>
+
+      <div id="array" class="content-section">
+        <h2><i class="fas fa-list-ol"></i> Array</h2>
+        <div class="materi">
+          <p>Array digunakan untuk menyimpan koleksi data.</p>
+          
+          <h3>Deklarasi Array:</h3>
+          <pre><code>let fruits = ['Apple', 'Banana', 'Orange'];</code></pre>
+          
+          <h3>Operasi Array:</h3>
+          <pre><code>// Akses elemen
+fruits[0]; // Apple
+
+// Tambah elemen
+fruits.push('Mango'); // di akhir
+fruits.unshift('Grape'); // di awal
+
+// Hapus elemen
+fruits.pop(); // hapus akhir
+fruits.shift(); // hapus awal
+
+// Panjang array
+fruits.length; // 3</code></pre>
+          
+          <h3>Array Methods:</h3>
+          <pre><code>// Map
+let numbers = [1, 2, 3];
+let doubled = numbers.map(n => n * 2); // [2, 4, 6]
+
+// Filter
+let evens = numbers.filter(n => n % 2 === 0); // [2]
+
+// Reduce
+let sum = numbers.reduce((total, n) => total + n, 0); // 6</code></pre>
+        </div>
+      </div>
+
+      <div id="object" class="content-section">
+        <h2><i class="fas fa-cube"></i> Object</h2>
+        <div class="materi">
+          <p>Object digunakan untuk menyimpan data dalam bentuk key-value pairs.</p>
+          
+          <h3>Deklarasi Object:</h3>
+          <pre><code>let person = {
+  name: 'Budi',
+  age: 20,
+  greet: function() {
+    return 'Halo, saya ' + this.name;
+  }
+};</code></pre>
+          
+          <h3>Akses Properti:</h3>
+          <pre><code>person.name; // Budi
+person['age']; // 20
+person.greet(); // Halo, saya Budi</code></pre>
+          
+          <h3>Class (ES6):</h3>
+          <pre><code>class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  
+  greet() {
+    return `Halo, saya ${this.name}`;
+  }
+}
+
+let budi = new Person('Budi', 20);
+budi.greet(); // Halo, saya Budi</code></pre>
+        </div>
+      </div>
+
+      <div id="dom" class="content-section">
+        <h2><i class="fas fa-window-maximize"></i> DOM Manipulation</h2>
+        <div class="materi">
+          <p>DOM (Document Object Model) adalah representasi HTML yang bisa dimanipulasi dengan JavaScript.</p>
+          
+          <h3>Seleksi Elemen:</h3>
+          <pre><code>// By ID
+let header = document.getElementById('header');
+
+// By Class
+let items = document.getElementsByClassName('item');
+
+// By Tag
+let paragraphs = document.getElementsByTagName('p');
+
+// Query Selector
+let firstItem = document.querySelector('.item');
+let allItems = document.querySelectorAll('.item');</code></pre>
+          
+          <h3>Manipulasi Konten:</h3>
+          <pre><code>// Ubah konten
+element.innerHTML = 'Konten baru';
+
+// Tambah class
+element.classList.add('active');
+
+// Hapus class
+element.classList.remove('active');
+
+// Ganti atribut
+element.setAttribute('src', 'new-image.jpg');</code></pre>
+          
+          <h3>Buat Elemen Baru:</h3>
+          <pre><code>let newDiv = document.createElement('div');
+newDiv.textContent = 'Div baru';
+document.body.appendChild(newDiv);</code></pre>
+        </div>
+      </div>
+
+      <div id="event" class="content-section">
+        <h2><i class="fas fa-mouse-pointer"></i> Event Handling</h2>
+        <div class="materi">
+          <p>Event adalah aksi yang terjadi di halaman web, seperti klik, hover, submit form, dll.</p>
+          
+          <h3>Event Listener:</h3>
+          <pre><code>let button = document.getElementById('myButton');
+
+// Cara 1: Property
+button.onclick = function() {
+  alert('Button diklik!');
+};
+
+// Cara 2: addEventListener (lebih fleksibel)
+button.addEventListener('click', function() {
+  alert('Button diklik!');
+});</code></pre>
+          
+          <h3>Jenis Event Umum:</h3>
+          <ul>
+            <li><code>click</code> - Ketika elemen diklik</li>
+            <li><code>mouseover</code>/<code>mouseout</code> - Mouse masuk/keluar elemen</li>
+            <li><code>keydown</code>/<code>keyup</code> - Ketika tombol keyboard ditekan/dilepas</li>
+            <li><code>submit</code> - Ketika form disubmit</li>
+            <li><code>load</code> - Ketika halaman selesai dimuat</li>
+          </ul>
+          
+          <h3>Event Object:</h3>
+          <pre><code>button.addEventListener('click', function(event) {
+  console.log(event.target); // Elemen yang diklik
+  event.preventDefault(); // Mencegah aksi default
+});</code></pre>
+        </div>
+      </div>
+
+      <div id="es6" class="content-section">
+        <h2><i class="fab fa-js"></i> ES6+ Features</h2>
+        <div class="materi">
+          <p>ES6 (ECMAScript 2015) memperkenalkan banyak fitur baru ke JavaScript.</p>
+          
+          <h3>Fitur ES6+ Penting:</h3>
+          <ul>
+            <li><strong>Let & Const</strong> - Deklarasi variabel block-scoped</li>
+            <li><strong>Arrow Functions</strong> - Sintaks fungsi lebih singkat</li>
+            <li><strong>Template Literals</strong> - String dengan variabel
+              <pre><code>`Halo ${nama}`</code></pre>
+            </li>
+            <li><strong>Destructuring</strong> - Ekstrak nilai dari array/object
+              <pre><code>let [a, b] = [1, 2];
+let {name, age} = person;</code></pre>
+            </li>
+            <li><strong>Spread/Rest Operator</strong> - ...
+              <pre><code>let arr = [...arr1, ...arr2];
+function sum(...numbers) { }</code></pre>
+            </li>
+            <li><strong>Modules</strong> - Import/export kode antar file
+              <pre><code>import { fungsi } from './module.js';
+export const nilai = 10;</code></pre>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="async" class="content-section">
+        <h2><i class="fas fa-clock"></i> Async Programming</h2>
+        <div class="materi">
+          <p>JavaScript adalah bahasa single-threaded yang menggunakan konsep asynchronous untuk operasi non-blocking.</p>
+          
+          <h3>Callback:</h3>
+          <pre><code>function fetchData(callback) {
+  setTimeout(() => {
+    callback('Data diterima');
+  }, 1000);
+}
+
+fetchData(data => {
+  console.log(data); // Data diterima (setelah 1 detik)
+});</code></pre>
+          
+          <h3>Promise:</h3>
+          <pre><code>function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Data diterima');
+    }, 1000);
+  });
+}
+
+fetchData()
+  .then(data => console.log(data))
+  .catch(err => console.error(err));</code></pre>
+          
+          <h3>Async/Await:</h3>
+          <pre><code>async function getData() {
+  try {
+    let data = await fetchData();
+    console.log(data);
+  } catch (err) {
+    console.error(err);
+  }
+}</code></pre>
+        </div>
+      </div>
+
+      <div id="error" class="content-section">
+        <h2><i class="fas fa-bug"></i> Error Handling</h2>
+        <div class="materi">
+          <p>Error handling digunakan untuk menangani kesalahan yang mungkin terjadi saat eksekusi kode.</p>
+          
+          <h3>Try-Catch:</h3>
+          <pre><code>try {
+  // Kode yang mungkin error
+  let hasil = x / y;
+} catch (error) {
+  // Tangani error
+  console.error('Terjadi error:', error.message);
+} finally {
+  // Selalu dijalankan
+  console.log('Selesai');
+}</code></pre>
+          
+          <h3>Throw Error:</h3>
+          <pre><code>function bagi(a, b) {
+  if (b === 0) {
+    throw new Error('Pembagian dengan nol');
+  }
+  return a / b;
+}</code></pre>
+          
+          <h3>Error Types:</h3>
+          <ul>
+            <li><code>Error</code> - Generic error</li>
+            <li><code>SyntaxError</code> - Kesalahan sintaks</li>
+            <li><code>ReferenceError</code> - Referensi tidak valid</li>
+            <li><code>TypeError</code> - Operasi pada tipe yang salah</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+      <script src=" {{ url_for('static', filename='js/sidebar.js')}}"></script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TeknoDev -- Latihan</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/latihan.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <h1 class="text-logo">TeknoDev</h1>
+    </div>
+    <div class="hamburger-bars">
+      <button id="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    </div>
+
+ <ul class="nav-links">
+  <li><a href="{{ url_for('index') }}">Home</a></li>
+  <li><a href="{{ url_for('latihan') }}">Latihan</a></li>
+  <li><a href="{{ url_for('ai_page') }}">Tanya AI</a></li>
+  <li><a href="{{ url_for('kuis') }}">Kuis</a></li>
+  <li><a href="{{ url_for('contact') }}">Donasi</a></li>
+</ul>
+
+  </nav>
+
+  <div class="hero">
+    <h1>Latihan dan Tantangan</h1>
+    <p class="lower-text">Uji kemampuan coding Anda dengan tantangan praktis!</p>
+
+    <main class="challenge-list">
+
+  <!-- 🔷 Judul untuk bagian HTML -->
+  <h2 class="challenge-section-title">🔷 Tantangan HTML</h2>
+
+  <!-- Grid untuk kartu tantangan HTML -->
+  <div class="challenge-grid">
+
+    <div class="challenge-card">
+      <h3>Tantangan 1: Profil Kartu Sederhana</h3>
+      <p class="lesson-text"><strong>Deskripsi:</strong> Buat satu card berisi nama, gambar profil, bio singkat dan tombol "Hubungi Saya".</p>
+      <div class="lesson-text">
+        <strong>Apa yang Dilatih:</strong>
+        <ul>
+          <li>Struktur dasar HTML (div, img, p, button)</li>
+          <li>Atribut gambar dan teks</li>
+          <li>Layout sederhana & logika komponen</li>
+        </ul>
+      </div>
+      <span class="level-easy">Pemula</span>
+    </div>
+
+    <div class="challenge-card">
+      <h3>Tantangan 2: Daftar Resep Favorit</h3>
+      <p class="lesson-text"><strong>Deskripsi:</strong> Halaman berisi beberapa resep favorit lengkap dengan bahan dan langkah-langkah memasaknya.</p>
+      <div class="lesson-text">
+        <strong>Apa yang Dilatih:</strong>
+        <ul>
+          <li>Struktur daftar (ul, ol)</li>
+          <li>Penggunaan heading (h1 sampai h3)</li>
+          <li>Penempatan gambar dalam konten</li>
+        </ul>
+      </div>
+      <span class="level-medium">Menengah</span>
+    </div>
+
+    <div class="challenge-card">
+      <h3>Tantangan 3: Artikel Blog Sederhana</h3>
+      <p class="lesson-text"><strong>Deskripsi:</strong> Tampilkan artikel pendek lengkap dengan tanggal dan konten.</p>
+      <div class="lesson-text">
+        <strong>Yang Dilatih:</strong>
+        <ul>
+          <li>Penggunaan article, p, dan time</li>
+          <li>Penulisan konten terstruktur</li>
+          <li>Penggunaan tag inline dan block</li>
+        </ul>
+      </div>
+      <span class="level-hard">Mahir</span>
+    </div>
+
+    <!-- 🔶 Judul untuk bagian CSS -->
+
+  </div>
+
+ <h2 class="challenge-section-title">🔶 Tantangan CSS</h2>
+
+<div class="challenge-grid">
+
+  <!-- Pemula -->
+  <div class="challenge-card">
+    <h3>Tantangan 1: Gaya Tombol Dasar</h3>
+    <p class="lesson-text"><strong>Deskripsi:</strong> Buat beberapa tombol dengan warna, ukuran, dan border yang berbeda menggunakan class CSS.</p>
+    <div class="lesson-text">
+      <strong>Apa yang Dilatih:</strong>
+      <ul>
+        <li>Selector dan property dasar</li>
+        <li>Background, padding, border</li>
+        <li>Kustomisasi style dasar</li>
+      </ul>
+    </div>
+    <span class="level-easy">Pemula</span>
+  </div>
+
+  <!-- Menengah -->
+  <div class="challenge-card">
+    <h3>Tantangan 2: Galeri Foto Grid</h3>
+    <p class="lesson-text"><strong>Deskripsi:</strong> Buat galeri dengan 6 gambar tersusun grid responsif (2–3 kolom) dengan caption di bawahnya.</p>
+    <div class="lesson-text">
+      <strong>Apa yang Dilatih:</strong>
+      <ul>
+        <li>CSS Grid</li>
+        <li>Responsivitas layout</li>
+        <li>figure & figcaption</li>
+      </ul>
+    </div>
+    <span class="level-medium">Menengah</span>
+  </div>
+
+  <!-- Mahir -->
+  <div class="challenge-card">
+    <h3>Tantangan 3: Form Login Responsif</h3>
+    <p class="lesson-text"><strong>Deskripsi:</strong> Buat form login sederhana yang tetap rapi di semua perangkat (mobile & desktop).</p>
+    <div class="lesson-text">
+      <strong>Apa yang Dilatih:</strong>
+      <ul>
+        <li>Flexbox / Grid</li>
+        <li>Media query</li>
+        <li>Styling input dan button</li>
+      </ul>
+    </div>
+    <span class="level-hard">Mahir</span>
+  </div>
+
+</div>
+
+
+<h2 class="challenge-section-title">🟨 Tantangan JavaScript</h2>
+
+<div class="challenge-grid">
+
+  <!-- Pemula -->
+  <div class="challenge-card">
+    <h3>Tantangan 1: Ganti Warna Latar</h3>
+    <p class="lesson-text"><strong>Deskripsi:</strong> Buat tombol yang saat diklik akan mengubah warna latar belakang halaman.</p>
+    <div class="lesson-text">
+      <strong>Apa yang Dilatih:</strong>
+      <ul>
+        <li>Event `onclick`</li>
+        <li>DOM `style.backgroundColor`</li>
+        <li>Interaksi pengguna sederhana</li>
+      </ul>
+    </div>
+    <span class="level-easy">Pemula</span>
+  </div>
+
+  <!-- Menengah -->
+  <div class="challenge-card">
+    <h3>Tantangan 2: Kalkulator Sederhana</h3>
+    <p class="lesson-text"><strong>Deskripsi:</strong> Buat kalkulator dengan tombol angka dan operator, serta layar untuk hasil hitung.</p>
+    <div class="lesson-text">
+      <strong>Apa yang Dilatih:</strong>
+      <ul>
+        <li>Fungsi dasar</li>
+        <li>Event handler dan logika</li>
+        <li>Manipulasi innerText</li>
+      </ul>
+    </div>
+    <span class="level-medium">Menengah</span>
+  </div>
+
+  <!-- Mahir -->
+  <div class="challenge-card">
+    <h3>Tantangan 3: Game Tebak Angka</h3>
+    <p class="lesson-text"><strong>Deskripsi:</strong> Buat game sederhana di mana user menebak angka antara 1–10, lalu tampilkan hasilnya.</p>
+    <div class="lesson-text">
+      <strong>Apa yang Dilatih:</strong>
+      <ul>
+        <li>Math.random()</li>
+        <li>Penggunaan if/else</li>
+        <li>Input, output, dan kondisi</li>
+      </ul>
+    </div>
+    <span class="level-hard">Mahir</span>
+  </div>
+
+</div>
+
+
+<h2 class="challenge-section-title">🟦 Tantangan React</h2>
+
+<div class="challenge-grid">
+
+  <!-- Pemula -->
+  <div class="challenge-card">
+    <h3>Tantangan 1: Komponen Counter</h3>
+    <p class="lesson-text"><strong>Deskripsi:</strong> Buat komponen React dengan tombol "+" dan "−" untuk menambah atau mengurangi nilai counter.</p>
+    <div class="lesson-text">
+      <strong>Apa yang Dilatih:</strong>
+      <ul>
+        <li>useState</li>
+        <li>Event handler</li>
+        <li>Komponen fungsional</li>
+      </ul>
+    </div>
+    <span class="level-easy">Pemula</span>
+  </div>
+
+  <!-- Menengah -->
+  <div class="challenge-card">
+    <h3>Tantangan 2: Form Kontak Dinamis</h3>
+    <p class="lesson-text"><strong>Deskripsi:</strong> Buat form kontak yang menangani input dan menampilkan data setelah dikirim.</p>
+    <div class="lesson-text">
+      <strong>Apa yang Dilatih:</strong>
+      <ul>
+        <li>useState dan onChange</li>
+        <li>onSubmit form</li>
+        <li>Menampilkan data dari state</li>
+      </ul>
+    </div>
+    <span class="level-medium">Menengah</span>
+  </div>
+
+  <!-- Mahir -->
+  <div class="challenge-card">
+    <h3>Tantangan 3: To-Do App</h3>
+    <p class="lesson-text"><strong>Deskripsi:</strong> Buat aplikasi daftar tugas (to-do list) dengan fitur tambah dan hapus item menggunakan React.</p>
+    <div class="lesson-text">
+      <strong>Apa yang Dilatih:</strong>
+      <ul>
+        <li>Array state & render dengan map()</li>
+        <li>Event penghapusan item</li>
+        <li>Logika state dinamis</li>
+      </ul>
+    </div>
+    <span class="level-hard">Mahir</span>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+</main>
+<script src="{{ url_for('static', filename='js/latihan.js') }}"></script>
+</body>
+</html>
+
